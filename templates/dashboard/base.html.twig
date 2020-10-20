@@ -15,17 +15,23 @@
 
     {% block stylesheets %}{% endblock %}
 </head>
-<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true">
+<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">
 
 <!-- Page wrapper start -->
-<div id="page-wrapper" class="page-wrapper with-navbar with-navbar-fixed-bottom">
+<div id="page-wrapper" class="page-wrapper with-navbar with-sidebar" data-sidebar-type="default">
 
     {% block body %}{% endblock %}
 
+    <!-- Navbar fixed bottom start -->
+    <nav class="navbar navbar-fixed-bottom justify-content-center">
+        <span class="navbar-text">
+            &copy; Copyright 2020
+        </span>
+    </nav>
+    <!-- Navbar fixed bottom end -->
 
-
-    <!-- Page wrapper end -->
 </div>
+<!-- Page wrapper end -->
 
 {% block javascripts %}{% endblock %}
 

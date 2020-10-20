@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
@@ -40,6 +41,17 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $user->setPassword($newEncodedPassword);
         $this->_em->persist($user);
         $this->_em->flush();
+    }
+
+    public function findByRole(string $role): array
+    {
+        $queryBuilder = $this->_em->createQueryBuilder();
+        $queryBuilder->select('u')
+                    ->from($this->_entityName, 'u')
+                    ->where('u.roles LIKE :roles')
+                    ->setParameter('roles', '%"'.$role.'"%');
+
+        return $queryBuilder->getQuery()->getResult();
     }
 
     // /**

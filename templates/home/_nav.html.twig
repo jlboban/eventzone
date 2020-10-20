@@ -1,0 +1,41 @@
+<!-- Navbar start -->
+<nav class="navbar">
+    <div class="navbar-content">
+
+        <!-- Navbar brand -->
+        <a href="{{ path('index') }}" class="navbar-brand">
+            <img src="{{ asset('img/eventzone_logo_gradient.png') }}" alt="Logo">
+        </a>
+
+        <!-- Navbar links -->
+        <a href="#" class="btn btn-sm mr-10 border" role="button">Events</a>
+        <a href="#" class="btn btn-sm mr-10 border" role="button">Musicians</a>
+        <a href="#" class="btn btn-sm mr-10 border" role="button">Venues</a>
+    </div>
+
+    <div class="navbar-content ml-auto">
+        {% if not app.user %}
+            <a href="#register" class="btn btn-sm mr-10 border" role="button">Sign up</a>
+        {% else %}
+            <div class="dropdown toggle-on-hover">
+                <button class="btn" data-toggle="dropdown" type="button" id="" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user ml-5" aria-hidden="true"></i> Account <i class="fa fa-angle-down ml-5" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="...">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('dashboard') }}" class="dropdown-item">Dashboard</a>
+                    {% else %}
+                        <a href="#" class="dropdown-item">Settings</a>
+                    {% endif %}
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-content">
+                        <a href="{{ path('app_logout') }}">
+                            <button class="btn btn-block btn-danger" type="button">Sign out</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</nav>
+<!-- Navbar end -->

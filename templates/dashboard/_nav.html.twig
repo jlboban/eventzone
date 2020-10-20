@@ -1,0 +1,27 @@
+<!-- Navbar start -->
+<nav class="navbar">
+    <div class="navbar-content">
+        <button id="toggle-sidebar-btn" class="btn btn-action" type="button" onclick="halfmoon.toggleSidebar()">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+    </div>
+    <!-- Navbar brand -->
+    <a href="{{ path('index') }}" class="navbar-brand">
+        <img src="{{ asset('img/eventzone_logo_gradient.png') }}" alt="Logo">
+    </a>
+    <div class="navbar-content ml-auto">
+        <button class="btn btn-action mr-5" type="button" onclick="halfmoon.toggleDarkMode()">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+            <span class="sr-only">Toggle dark mode</span>
+        </button>
+
+        <a href="{{ path('app_logout') }}">
+            <button class="btn btn-action mr-5" type="button">
+                <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                <span class="sr-only">Log out</span>
+            </button>
+        </a>
+
+    </div>
+</nav>
+<!-- Navbar end -->

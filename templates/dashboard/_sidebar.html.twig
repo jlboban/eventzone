@@ -1,0 +1,108 @@
+<!-- Sidebar start -->
+<div class="sidebar">
+    <div class="sidebar-menu">
+
+        <!-- Management -->
+        <h5 class="sidebar-title"><i class="fa fa-chart-bar" aria-hidden="true"></i> Management</h5>
+        <a href="#" class="sidebar-link sidebar-link-with-icon">
+            <span class="sidebar-icon">
+                 <i class="fa fa-home" aria-hidden="true"></i>
+            </span>
+            Home
+        </a>
+        <br />
+
+        <!-- Administrators -->
+        <h5 class="sidebar-title"><i class="fa fa-user-shield" aria-hidden="true"></i> Administrators</h5>
+        <div class="sidebar-divider"></div>
+
+        <a href="{{ path('admin_index') }}" class="sidebar-link sidebar-link-with-icon">
+            <span class="sidebar-icon">
+                 <i class="fa fa-list" aria-hidden="true"></i>
+            </span>
+            List
+        </a>
+
+        <a href="{{ path('admin_new') }}" class="sidebar-link sidebar-link-with-icon">
+            <span class="sidebar-icon">
+                 <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            Add
+        </a>
+        <br />
+
+        <!-- Events -->
+        <h5 class="sidebar-title"><i class="fa fa-calendar-alt" aria-hidden="true"></i> Events</h5>
+        <div class="sidebar-divider"></div>
+
+        <a href="<?= URL_ROOT . 'event/list'; ?>" class="sidebar-link sidebar-link-with-icon">
+            <span class="sidebar-icon">
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </span>
+            List
+        </a>
+
+        <a href="#" class="sidebar-link sidebar-link-with-icon">
+            <span class="sidebar-icon">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            Add
+        </a>
+        <br />
+
+        <!-- Musicians -->
+        <h5 class="sidebar-title"><i class="fa fa-music" aria-hidden="true"></i> Musicians</h5>
+        <div class="sidebar-divider"></div>
+
+        <a href="#" class="sidebar-link sidebar-link-with-icon">
+            <span class="sidebar-icon">
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </span>
+            List
+        </a>
+
+        <a href="#" class="sidebar-link sidebar-link-with-icon">
+            <span class="sidebar-icon">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            Add
+        </a>
+        <br />
+
+        <!-- Venues -->
+        <h5 class="sidebar-title"><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Venues</h5>
+        <div class="sidebar-divider"></div>
+
+        <a href="#" class="sidebar-link sidebar-link-with-icon">
+            <span class="sidebar-icon">
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </span>
+            List
+        </a>
+
+        <a href="#" class="sidebar-link sidebar-link-with-icon">
+            <span class="sidebar-icon">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            Add
+        </a>
+        <br />
+
+        <!-- Users -->
+        <h5 class="sidebar-title"><i class="fa fa-users" aria-hidden="true"></i> Users</h5>
+        <div class="sidebar-divider"></div>
+
+        <a href="#" class="sidebar-link sidebar-link-with-icon">
+            <span class="sidebar-icon">
+                 <i class="fa fa-list" aria-hidden="true"></i>
+            </span>
+            List
+        </a>
+        <br />
+
+    </div>
+</div>
+<!-- Sidebar end -->
+
+<!-- Sidebar overlay -->
+<div class="sidebar-overlay" onclick="halfmoon.toggleSidebar()"></div>
