@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\FileUploader;
 use App\Entity\Musician;
 use App\Form\MusicianType;
 use App\Repository\MusicianRepository;
@@ -30,15 +31,25 @@ class MusicianController extends AbstractController
     /**
      * @Route("/new", name="musician_new", methods={"GET","POST"})
      * @param Request $request
+     * @param FileUploader $fileUploader
      * @return Response
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FileUploader $fileUploader): Response
     {
         $musician = new Musician();
         $form = $this->createForm(MusicianType::class, $musician);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $image = $form->get('image')->getData();
+
+            if ($image)
+            {
+                $imageFileName = $fileUploader->upload($image, 'musicians');
+                $musician->setImage($imageFileName);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($musician);
             $entityManager->flush();
@@ -54,6 +65,8 @@ class MusicianController extends AbstractController
 
     /**
      * @Route("/{id}", name="musician_show", methods={"GET"})
+     * @param Musician $musician
+     * @return Response
      */
     public function show(Musician $musician): Response
     {
