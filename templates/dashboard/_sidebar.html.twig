@@ -4,7 +4,7 @@
 
         <!-- Management -->
         <h5 class="sidebar-title"><i class="fa fa-chart-bar" aria-hidden="true"></i> Management</h5>
-        <a href="#" class="sidebar-link sidebar-link-with-icon">
+        <a href="{{ path('dashboard') }}" class="sidebar-link sidebar-link-with-icon">
             <span class="sidebar-icon">
                  <i class="fa fa-home" aria-hidden="true"></i>
             </span>
@@ -35,7 +35,7 @@
         <h5 class="sidebar-title"><i class="fa fa-calendar-alt" aria-hidden="true"></i> Events</h5>
         <div class="sidebar-divider"></div>
 
-        <a href="<?= URL_ROOT . 'event/list'; ?>" class="sidebar-link sidebar-link-with-icon">
+        <a href="#" class="sidebar-link sidebar-link-with-icon">
             <span class="sidebar-icon">
                 <i class="fa fa-list" aria-hidden="true"></i>
             </span>
@@ -92,7 +92,7 @@
         <h5 class="sidebar-title"><i class="fa fa-users" aria-hidden="true"></i> Users</h5>
         <div class="sidebar-divider"></div>
 
-        <a href="#" class="sidebar-link sidebar-link-with-icon">
+        <a href="{{ path('user_index') }}" class="sidebar-link sidebar-link-with-icon">
             <span class="sidebar-icon">
                  <i class="fa fa-list" aria-hidden="true"></i>
             </span>

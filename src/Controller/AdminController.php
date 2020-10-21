@@ -54,6 +54,8 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/{id}", name="admin_show", methods={"GET"})
+     * @param User $user
+     * @return Response
      */
     public function show(User $user): Response
     {

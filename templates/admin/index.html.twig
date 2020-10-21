@@ -4,64 +4,46 @@
 
 {% block body %}
 
-    {{ include('dashboard/_nav.html.twig') }}
-    {{ include('dashboard/_sidebar.html.twig') }}
+<div class="content">
 
-    <!-- Content wrapper start -->
-    <div class="content-wrapper">
-        <div class="container-fluid">
-            <div class="row row-eq-spacing-lg">
-                <div class="col-lg-12">
+    <h3>Admin List</h3>
 
-                    <div class="content">
-                        <h3>Admin List</h3>
-                        <table class="table table-hover table-responsive">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
 
-                            {% for admin in admins %}
-                                <tr>
-                                    <th>{{ admin.id }}</th>
-                                    <td>{{ admin.firstName }}</td>
-                                    <td>{{ admin.lastName }}</td>
-                                    <td>{{ admin.email }}</td>
-                                    <td>
-                                        <a href="{{ path('admin_edit', { id: admin.id }) }}" class="btn btn-square">
-                                            <span>
-                                                 <i class="fa fa-edit" aria-hidden="true"></i>
-                                            </span>
-                                        </a>
+        <tbody>
+        {% for admin in admins %}
+            <tr>
+                <th>{{ admin.id }}</th>
+                <td>{{ admin.firstName }}</td>
+                <td>{{ admin.lastName }}</td>
+                <td>{{ admin.email }}</td>
+                <td>
+                    <a href="{{ path('admin_edit', { id: admin.id }) }}" class="btn btn-square">
+                        <span><i class="fa fa-edit" aria-hidden="true"></i></span>
+                    </a>
+                    <a href="{{ path('admin_delete', { id: admin.id }) }}" class="btn btn-square">
+                        <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">No records found</td>
+            </tr>
+        {% endfor %}
+        <tr>
+        </tbody>
 
-                                        <a href="{{ path('admin_delete', { id: admin.id }) }}" class="btn btn-square">
-                                            <span>
-                                                 <i class="fa fa-trash" aria-hidden="true"></i>
-                                            </span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            {% else %}
-                                <tr>
-                                    <td colspan="5">No records found</td>
-                                </tr>
-                            {% endfor %}
-                            <tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- Content wrapper end -->
+    </table>
+</div>
 
 {% endblock %}

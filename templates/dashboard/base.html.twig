@@ -20,15 +20,24 @@
 <!-- Page wrapper start -->
 <div id="page-wrapper" class="page-wrapper with-navbar with-sidebar" data-sidebar-type="default">
 
-    {% block body %}{% endblock %}
+    {{ include('dashboard/_nav.html.twig') }}
+    {{ include('dashboard/_sidebar.html.twig') }}
 
-    <!-- Navbar fixed bottom start -->
-    <nav class="navbar navbar-fixed-bottom justify-content-center">
-        <span class="navbar-text">
-            &copy; Copyright 2020
-        </span>
-    </nav>
-    <!-- Navbar fixed bottom end -->
+    <!-- Content wrapper start -->
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row row-eq-spacing-lg">
+                <div class="col-lg-12">
+
+                    {% block body %}{% endblock %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content wrapper end -->
+
+    {{ include('dashboard/_footer.html.twig') }}
 
 </div>
 <!-- Page wrapper end -->

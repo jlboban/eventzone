@@ -20,12 +20,14 @@
 <!-- Page wrapper start -->
 <div id="page-wrapper" class="page-wrapper with-navbar with-navbar-fixed-bottom">
 
+    {{ include('home/_nav.html.twig') }}
+
     {% block body %}{% endblock %}
 
+    {{ include('home/_footer.html.twig') }}
 
-
-    <!-- Page wrapper end -->
 </div>
+<!-- Page wrapper end -->
 
 {% block javascripts %}{% endblock %}
 
