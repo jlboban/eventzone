@@ -21,7 +21,7 @@ class AppFixtures extends Fixture
         $user = new User();
         $user->setFirstName('Eventzone');
         $user->setLastName('Admin');
-        $user->setEmail('dashboard@eventzone.com');
+        $user->setEmail('admin@eventzone.com');
         $user->setPassword($this->passwordEncoder->encodePassword(
             $user,
             'Admin123$'

@@ -1,0 +1,15 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% block title %}Edit venue{% endblock %}
+
+{% block body %}
+
+    <h1>Edit venue</h1>
+
+    {{ include('venue/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('venue_index') }}">back to list</a>
+
+    {{ include('venue/_delete_form.html.twig') }}
+
+{% endblock %}

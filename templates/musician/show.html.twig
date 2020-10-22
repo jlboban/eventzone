@@ -17,12 +17,12 @@
             </tr>
             <tr>
                 <th>Description</th>
-                <td>{{ musician.description }}</td>
+                <td><div class="text-wrap text-smoothing-antialiased">{{ musician.description }}</div></td>
             </tr>
             <tr>
                 <th>Image</th>
-                <td class="w-300">
-                    <img class="img-fluid border shadow-lg" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
+                <td>
+                    <img class="img-fluid border shadow-lg w-250" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
                 </td>
             </tr>
         </tbody>

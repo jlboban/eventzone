@@ -1,0 +1,4 @@
+<form id="venue-delete-{{ venue.id }}" method="post" action="{{ path('venue_delete', {'id': venue.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ venue.id) }}">
+</form>

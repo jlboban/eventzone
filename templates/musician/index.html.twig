@@ -1,6 +1,6 @@
 {% extends 'dashboard/base.html.twig' %}
 
-{% block title %}Musician index{% endblock %}
+{% block title %}Musician{% endblock %}
 
 {% block body %}
 
@@ -21,7 +21,7 @@
         <tr>
             <td>{{ musician.id }}</td>
             <td>{{ musician.name }}</td>
-            <td>{{ musician.description }}</td>
+            <td><div class="text-break w-500">{{ musician.description }}</div></td>
             <td class="w-300">
                 <img class="img-fluid border shadow-lg" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
             </td>
