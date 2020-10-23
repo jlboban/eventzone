@@ -17,7 +17,6 @@ class VenueType extends AbstractType
             ->add('capacity')
             ->add('image', FileType::class, [
                 'mapped' => false,
-                'required' => false
             ])
             ->add('address')
             ->add('city')

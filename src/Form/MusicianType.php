@@ -17,7 +17,6 @@ class MusicianType extends AbstractType
             ->add('description')
             ->add('image', FileType::class, [
                 'mapped' => false,
-                'required' => false
             ])
         ;
     }

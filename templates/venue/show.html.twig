@@ -3,7 +3,7 @@
 {% block title %}Venue{% endblock %}
 
 {% block body %}
-    <h1>Venue</h1>
+    <h3>Venue | <strong>{{ venue.name }}</strong></h3>
 
     <table class="table">
         <tbody>
@@ -20,10 +20,6 @@
                 <td>{{ venue.capacity }}</td>
             </tr>
             <tr>
-                <th>Image</th>
-                <td>{{ venue.image }}</td>
-            </tr>
-            <tr>
                 <th>Address</th>
                 <td>{{ venue.address }}</td>
             </tr>
@@ -38,6 +34,12 @@
             <tr>
                 <th>Country</th>
                 <td>{{ venue.country }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    <img class="img-fluid border shadow-lg w-250" src="{{ asset('img/venues/' ~ venue.image) }}" alt="Musician Image">
+                </td>
             </tr>
         </tbody>
     </table>

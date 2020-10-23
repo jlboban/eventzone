@@ -4,9 +4,9 @@
 
 {% block body %}
 
-<h3>Musician List</h3>
+<h1 class="text-center"><i class="fas fa-music"></i> Musician List</h1>
 
-<table class="table table-hover table-responsive">
+<table class="table table-striped table-responsive table-hover">
     <thead>
         <tr>
             <th>#</th>
@@ -21,15 +21,22 @@
         <tr>
             <td>{{ musician.id }}</td>
             <td>{{ musician.name }}</td>
-            <td><div class="text-break w-500">{{ musician.description }}</div></td>
-            <td class="w-300">
+            <td><div>{{ musician.description }}</div></td>
+            <td>
                 <img class="img-fluid border shadow-lg" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
             </td>
             <td>
-                <div class="btn-group-vertical d-flex align-content-center">
-                    <a href="{{ path('musician_show', { id: musician.id }) }}" class="btn btn-square">
-                        <span><i class="fa fa-eye" aria-hidden="true"></i></span>
+                <div class="btn-group-vertical d-flex ">
+                    <div class="btn-group d-flex align-content-center">
+                        <span  class="btn btn-square btn-lg disabled"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                    <a href="{{ path('musician_show', { id: musician.id }) }}" class="btn btn-square btn-lg">
+
+                        <span><i class="fas fa-user-shield" aria-hidden="true"></i></span>
                     </a>
+                    <a href="{{ path('musician_show', { id: musician.id }) }}" class="btn btn-square btn-lg">
+                        <span><i class="fas fa-user" aria-hidden="true"></i></span>
+                    </a>
+                    </div>
                     <a href="{{ path('musician_edit', { id: musician.id }) }}" class="btn btn-square">
                         <span><i class="fa fa-edit" aria-hidden="true"></i></span>
                     </a>
