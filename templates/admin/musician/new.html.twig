@@ -1,4 +1,4 @@
-{% extends 'dashboard/base.html.twig' %}
+{% extends 'admin/dashboard/base.html.twig' %}
 
 {% block title %}New Musician{% endblock %}
 
@@ -6,7 +6,7 @@
 
     <h1>Create new musician</h1>
 
-    {{ include('musician/_form.html.twig') }}
+    {{ include('admin/musician/_form.html.twig') }}
 
     <a href="{{ path('musician_index') }}">back to list</a>
 

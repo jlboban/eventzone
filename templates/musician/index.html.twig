@@ -1,61 +1,36 @@
-{% extends 'dashboard/base.html.twig' %}
+{% extends 'home/base.html.twig' %}
 
-{% block title %}Musician{% endblock %}
+{% block title %}Musicians{% endblock %}
 
 {% block body %}
+<!-- Content wrapper start -->
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            {% for musician in musicians %}
 
-<h1 class="text-center"><i class="fas fa-music"></i> Musician List</h1>
-
-<table class="table table-striped table-responsive table-hover">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th class="text-center">Image</th>
-            <th class="text-center">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for musician in musicians %}
-        <tr>
-            <td>{{ musician.id }}</td>
-            <td>{{ musician.name }}</td>
-            <td><div>{{ musician.description }}</div></td>
-            <td>
-                <img class="img-fluid border shadow-lg" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
-            </td>
-            <td>
-                <div class="btn-group-vertical d-flex ">
-                    <div class="btn-group d-flex align-content-center">
-                        <span  class="btn btn-square btn-lg disabled"><i class="fa fa-eye" aria-hidden="true"></i></span>
-                    <a href="{{ path('musician_show', { id: musician.id }) }}" class="btn btn-square btn-lg">
-
-                        <span><i class="fas fa-user-shield" aria-hidden="true"></i></span>
-                    </a>
-                    <a href="{{ path('musician_show', { id: musician.id }) }}" class="btn btn-square btn-lg">
-                        <span><i class="fas fa-user" aria-hidden="true"></i></span>
-                    </a>
+            <div class="col-sm-4 col-sm-auto">
+                <div class="mw-full">
+                    <div class="card p-0">
+                        <img src="{{ asset('img/musicians/' ~ musician.image) }}" class="img-fluid rounded-top" alt="Musician Image">
+                        <div class="content">
+                            <h2 class="content-title">
+                                {{ musician.name }}
+                            </h2>
+                            <h2 class="content-title">
+                                Genre
+                            </h2>
+                            <div class="text-right">
+                                <a href="{{ path('musician_show', {'id': musician.id}) }}" class="btn">Details</a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="{{ path('musician_edit', { id: musician.id }) }}" class="btn btn-square">
-                        <span><i class="fa fa-edit" aria-hidden="true"></i></span>
-                    </a>
-
-                    {{ include('musician/_delete_form.html.twig') }}
-
-                    <button class="btn btn-square btn-danger text-dark" form="musician-delete-{{ musician.id }}">
-                        <span><i class="fa fa-trash" aria-hidden="true"></i></span>
-                    </button>
                 </div>
-            </td>
-        </tr>
-    {% else %}
-        <tr>
-            <td colspan="5">No records found.</td>
-        </tr>
-    {% endfor %}
-    <tr>
-    </tbody>
-</table>
+            </div>
 
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Content wrapper end -->
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'dashboard/base.html.twig' %}
+{% extends 'admin/dashboard/base.html.twig' %}
 
 {% block title %}New Venue{% endblock %}
 
@@ -6,7 +6,7 @@
 
     <h1>Create new venue</h1>
 
-    {{ include('venue/_form.html.twig') }}
+    {{ include('admin/venue/_form.html.twig') }}
 
     <a href="{{ path('venue_index') }}">back to list</a>
 

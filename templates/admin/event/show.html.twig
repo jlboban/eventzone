@@ -1,6 +1,6 @@
-{% extends 'home/base.html.twig' %}
+{% extends 'admin/dashboard/base.html.twig' %}
 
-{% block title %}{{ event.name }}{% endblock %}
+{% block title %}Event{% endblock %}
 
 {% block body %}
     <h3>Event | <strong>{{ event.name }}</strong></h3>
@@ -29,7 +29,7 @@
             </tr>
             <tr>
                 <th>Start_time</th>
-                <td>{{ event.startTime ? event.startTime|date('H:i') : '' }}</td>
+                <td>{{ event.startTime ? event.startTime|date('H:i:s') : '' }}</td>
             </tr>
             <tr>
                 <th>End_time</th>
@@ -46,10 +46,18 @@
             <tr>
                 <th>Image</th>
                 <td>
-                    <img class="img-fluid border shadow-lg w-250" src="{{ asset('img/events/' ~ event.image) }}" alt="Musician Image">
+                    <img class="img-fluid border shadow-lg mw-full" src="{{ asset('img/events/' ~ event.image) }}" alt="Musician Image">
                 </td>
             </tr>
         </tbody>
     </table>
+
+    {{ include('admin/event/_delete_form.html.twig') }}
+
+    <div class="btn-group d-flex align-content-center border">
+        <a class="btn" href="{{ path('admin_event_index') }}"><span><i class="fa fa-list" aria-hidden="true"></i></span></a>
+        <a class="btn" href="{{ path('event_edit', {'id': event.id}) }}"><span><i class="fa fa-edit" aria-hidden="true"></i></span></a>
+        <button class="btn btn-danger text-dark" form="event-delete-{{ event.id }}"><span><i class="fa fa-trash" aria-hidden="true"></i></span></button>
+    </div>
 
 {% endblock %}

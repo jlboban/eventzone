@@ -1,4 +1,4 @@
-{% extends 'dashboard/base.html.twig' %}
+{% extends 'admin/dashboard/base.html.twig' %}
 
 {% block title %}New Event{% endblock %}
 
@@ -6,7 +6,7 @@
 
     <h1>Create new event</h1>
 
-    {{ include('event/_form.html.twig') }}
+    {{ include('admin/event/_form.html.twig') }}
 
     <a href="{{ path('event_index') }}">back to list</a>
 

@@ -6,13 +6,14 @@ use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
 use App\Service\FileUploader;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/event")
+ * @Route("/events")
  */
 class EventController extends AbstractController
 {
@@ -29,17 +30,33 @@ class EventController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="event_new", methods={"GET","POST"})
+     * @Route("/index", name="admin_event_index", methods={"GET"})
+     * @param EventRepository $eventRepository
+     * @return Response
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function adminIndex(EventRepository $eventRepository): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        return $this->render('admin/event/index.html.twig', [
+            'events' => $eventRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("event/new", name="event_new", methods={"GET","POST"})
      * @param Request $request
      * @param FileUploader $fileUploader
      * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request, FileUploader $fileUploader): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $event = new Event();
-
         $form = $this->createForm(EventType::class, $event);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -59,7 +76,7 @@ class EventController extends AbstractController
             return $this->redirectToRoute('event_index');
         }
 
-        return $this->render('event/new.html.twig', [
+        return $this->render('admin/event/new.html.twig', [
             'event' => $event,
             'form' => $form->createView(),
         ]);
@@ -73,18 +90,33 @@ class EventController extends AbstractController
     public function show(Event $event): Response
     {
         return $this->render('event/show.html.twig', [
-            'event' => $event,
+            'event' => $event
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="event_edit", methods={"GET","POST"})
+     * @Route("/show/{id}", name="admin_event_show", methods={"GET"})
+     * @param Event $event
+     * @return Response
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function adminShow(Event $event): Response
+    {
+        return $this->render('admin/event/show.html.twig', [
+            'event' => $event
+        ]);
+    }
+
+    /**
+     * @Route("event/{id}/edit", name="event_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Event $event
      * @return Response
      */
     public function edit(Request $request, Event $event): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
 
@@ -94,20 +126,23 @@ class EventController extends AbstractController
             return $this->redirectToRoute('event_index');
         }
 
-        return $this->render('event/edit.html.twig', [
+        return $this->render('admin/event/edit.html.twig', [
             'event' => $event,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="event_delete", methods={"DELETE"})
+     * @Route("event/{id}", name="event_delete", methods={"DELETE"})
      * @param Request $request
      * @param Event $event
      * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Event $event): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         if ($this->isCsrfTokenValid('delete'.$event->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($event);

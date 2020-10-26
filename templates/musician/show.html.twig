@@ -1,39 +1,51 @@
-{% extends 'dashboard/base.html.twig' %}
+{% extends 'home/base.html.twig' %}
 
-{% block title %}Musician{% endblock %}
+{% block title %}{{ musician.name }}{% endblock %}
 
 {% block body %}
-    <h3>Musician | <strong>{{ musician.name }}</strong></h3>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>#</th>
-                <td>{{ musician.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ musician.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td><div class="text-wrap text-smoothing-antialiased">{{ musician.description }}</div></td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>
-                    <img class="img-fluid border shadow-lg w-250" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    {{ include('musician/_delete_form.html.twig') }}
-
-    <div class="btn-group d-flex align-content-center border">
-        <a class="btn" href="{{ path('musician_index') }}"><span><i class="fa fa-list" aria-hidden="true"></i></span></a>
-        <a class="btn" href="{{ path('musician_edit', {'id': musician.id}) }}"><span><i class="fa fa-edit" aria-hidden="true"></i></span></a>
-        <button class="btn btn-danger text-dark" form="musician-delete"><span><i class="fa fa-trash" aria-hidden="true"></i></span></button>
+<!-- Content wrapper start -->
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="card border">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="mw-full">
+                        <div class="card p-0 border">
+                            <img src="{{ asset('img/musicians/' ~ musician.image) }}" class="img-fluid rounded-top" alt="Musician image">
+                            <div class="content h-100">
+                                <h1 class="content-title font-weight-bolder text-center">
+                                    {{ musician.name }}
+                                </h1>
+                                <h6 class="content-title font-weight-light text-center">
+                                    Genre
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="mw-full">
+                        <div class="card p-0 border">
+                            <div class="content h100">
+                                <iframe src=""
+                                        width="100%" frameborder="0" allowtransparency="true" allow="encrypted-media">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="card p-0 border">
+                        <div class="content font-weight-light">
+                            {{ musician.description }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+<!-- Content wrapper end -->
 
 {% endblock %}

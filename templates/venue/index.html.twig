@@ -1,61 +1,38 @@
-{% extends 'dashboard/base.html.twig' %}
+{% extends 'home/base.html.twig' %}
 
 {% block title %}Venues{% endblock %}
 
 {% block body %}
 
-    <h1 class="text-center"><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Venue List</h1>
+<!-- Content wrapper start -->
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            {% for venue in venues %}
 
-<table class="table table-hover table-responsive">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Capacity</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>Postcode</th>
-            <th>Country</th>
-            <th class="text-center">Image</th>
-            <th class="text-center">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for venue in venues %}
-        <tr>
-            <td>{{ venue.id }}</td>
-            <td>{{ venue.name }}</td>
-            <td>{{ venue.capacity }}</td>
-            <td>{{ venue.address }}</td>
-            <td>{{ venue.city }}</td>
-            <td>{{ venue.postcode }}</td>
-            <td>{{ venue.country }}</td>
-            <td class="w-300">
-                <img class="img-fluid border shadow-lg" src="{{ asset('img/venues/' ~ venue.image) }}" alt="Venue Image">
-            </td>
-            <td>
-                <div class="btn-group-vertical d-flex align-content-center">
-                    <a href="{{ path('venue_show', { id: venue.id }) }}" class="btn btn-square">
-                        <span><i class="fa fa-eye" aria-hidden="true"></i></span>
-                    </a>
-                    <a href="{{ path('venue_edit', { id: venue.id }) }}" class="btn btn-square">
-                        <span><i class="fa fa-edit" aria-hidden="true"></i></span>
-                    </a>
-
-                    {{ include('venue/_delete_form.html.twig') }}
-
-                    <button class="btn btn-square btn-danger text-dark" form="venue-delete-{{ venue.id }}">
-                        <span><i class="fa fa-trash" aria-hidden="true"></i></span>
-                    </button>
+                <div class="col-sm-4 col-sm-auto">
+                    <div class="mw-full">
+                        <div class="card p-0">
+                            <img src="{{ asset('img/venues/' ~ venue.image) }}" class="img-fluid rounded-top" alt="Musician Image">
+                            <div class="content">
+                                <h2 class="content-title">
+                                    {{ venue.name }}
+                                </h2>
+                                <h2 class="content-title">
+                                    {{ venue.capacity }}
+                                </h2>
+                                <div class="text-right">
+                                    <a href="{{ path('venue_show', {'id': venue.id}) }}" class="btn">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </td>
-        </tr>
-    {% else %}
-        <tr>
-            <td colspan="9">No records found.</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Content wrapper end -->
 
 {% endblock %}

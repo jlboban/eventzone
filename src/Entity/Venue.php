@@ -34,7 +34,7 @@ class Venue
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\File
      */
     private ?string $image;
 

@@ -1,0 +1,54 @@
+{% extends 'admin/dashboard/base.html.twig' %}
+
+{% block title %}Musician{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center"><i class="fas fa-music"></i> Musician List</h1>
+
+<table class="table table-striped table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="text-center">Image</th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for musician in musicians %}
+        <tr>
+            <td>{{ musician.id }}</td>
+            <td>{{ musician.name }}</td>
+            <td class="text-break w-200">{{ musician.description }}</td>
+            <td>
+                <img class="img-fluid border shadow-lg w-250 mw-lg-full" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
+            </td>
+            <td>
+                <div class="btn-group-vertical d-flex align-content-center">
+                    <a href="{{ path('admin_musician_show', { id: musician.id }) }}" class="btn btn-square">
+                        <span><i class="fa fa-eye" aria-hidden="true"></i></span>
+                    </a>
+                    <a href="{{ path('musician_edit', { id: musician.id }) }}" class="btn btn-square">
+                        <span><i class="fa fa-edit" aria-hidden="true"></i></span>
+                    </a>
+
+                    {{ include('admin/musician/_delete_form.html.twig') }}
+
+                    <button class="btn btn-square btn-danger text-dark" form="musician-delete-{{ musician.id }}">
+                        <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="5">No records found.</td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

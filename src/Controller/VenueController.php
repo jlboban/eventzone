@@ -6,13 +6,14 @@ use App\Service\FileUploader;
 use App\Entity\Venue;
 use App\Form\VenueType;
 use App\Repository\VenueRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/venue")
+ * @Route("/venues")
  */
 class VenueController extends AbstractController
 {
@@ -29,10 +30,24 @@ class VenueController extends AbstractController
     }
 
     /**
+     * @Route("/index", name="admin_venue_index", methods={"GET"})
+     * @param VenueRepository $venueRepository
+     * @return Response
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function adminIndex(VenueRepository $venueRepository): Response
+    {
+        return $this->render('admin/venue/index.html.twig', [
+            'venues' => $venueRepository->findAll(),
+        ]);
+    }
+
+    /**
      * @Route("/new", name="venue_new", methods={"GET","POST"})
      * @param Request $request
      * @param FileUploader $fileUploader
      * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request, FileUploader $fileUploader): Response
     {
@@ -57,7 +72,7 @@ class VenueController extends AbstractController
             return $this->redirectToRoute('venue_index');
         }
 
-        return $this->render('venue/new.html.twig', [
+        return $this->render('admin/venue/new.html.twig', [
             'venue' => $venue,
             'form' => $form->createView(),
         ]);
@@ -71,7 +86,20 @@ class VenueController extends AbstractController
     public function show(Venue $venue): Response
     {
         return $this->render('venue/show.html.twig', [
-            'venue' => $venue,
+            'venue' => $venue
+        ]);
+    }
+
+    /**
+     * @Route("/show/{id}", name="admin_venue_show", methods={"GET"})
+     * @param Venue $venue
+     * @return Response
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function adminShow(Venue $venue): Response
+    {
+        return $this->render('admin/venue/show.html.twig', [
+            'venue' => $venue
         ]);
     }
 
@@ -80,6 +108,7 @@ class VenueController extends AbstractController
      * @param Request $request
      * @param Venue $venue
      * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Venue $venue): Response
     {
@@ -92,7 +121,7 @@ class VenueController extends AbstractController
             return $this->redirectToRoute('venue_index');
         }
 
-        return $this->render('venue/edit.html.twig', [
+        return $this->render('admin/venue/edit.html.twig', [
             'venue' => $venue,
             'form' => $form->createView(),
         ]);
@@ -103,6 +132,7 @@ class VenueController extends AbstractController
      * @param Request $request
      * @param Venue $venue
      * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Venue $venue): Response
     {
