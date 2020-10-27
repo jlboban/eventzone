@@ -23,4 +23,15 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll()
         ]);
     }
+
+    /**
+     * @Route("/settings", name="user_settings", methods={"GET"})
+     * @return Response
+     */
+    public function settings(): Response
+    {
+        return $this->render('user/settings.html.twig', [
+            'user' => $this->getUser(),
+        ]);
+    }
 }

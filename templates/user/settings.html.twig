@@ -1,0 +1,109 @@
+{% extends 'home/base.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+
+<!-- Content wrapper start -->
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row row-eq-spacing-lg">
+
+            <div class="col-lg-3"></div>
+
+            <div class="col-lg-6 card">
+
+                <h1 class="text-center">Account settings</h1>
+                <div class="content">
+                    <form action="" method="POST">
+
+                    <div class="form-row row-eq-spacing-sm">
+                        <!-- First name -->
+                        <div class="col-sm form-group">
+                            <label for="first-name" class="font-weight-bold">First name</label>
+                            <input type="text" class="form-control" disabled="disabled"
+                                   value="{{ user.firstName }}"
+                                   id="first-name">
+                        </div>
+
+                        <!-- Last name -->
+                        <div class="col-sm form-group">
+                            <label for="last-name" class="font-weight-bold">Last name</label>
+                            <input type="text" class="form-control" disabled="disabled"
+                                   value="{{ user.lastName }}"
+                                   id="last-name">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="font-weight-bold">Email</label>
+                        <input type="email" id="email" class="form-control"
+                               value="{{ user.email }}"
+                               disabled="disabled">
+                    </div>
+
+                    <div class="form-row row-eq-spacing-sm">
+                        <div class="col-sm form-group">
+                            <label for="address" class="font-weight-bold">Address</label>
+                            <input type="text" class="form-control" placeholder="Address"
+                                   name="address" id="city">
+                            <small class="text-danger"></small>
+                        </div>
+
+                        <div class="col-sm form-group">
+                            <label for="city" class="font-weight-bold">City</label>
+                            <input type="text" class="form-control" placeholder="City"
+                                   name="city" id="city">
+                            <small class="text-danger"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-row row-eq-spacing-sm">
+                        <div class="col-sm form-group">
+                            <label for="postcode" class="font-weight-bold">Postcode</label>
+                            <input type="text" class="form-control" placeholder="Postcode"
+                                   name="postcode" id="postcode">
+                            <small class="text-danger"></small>
+                        </div>
+
+                        <div class="col-sm form-group">
+                            <label for="country" class="font-weight-bold">Country</label>
+                            <input type="text" class="form-control" placeholder="Country"
+                                   name="country" id="country">
+                            <small class="text-danger"></small>
+                        </div>
+                    </div>
+
+                    <input class="btn btn-primary btn-block" type="submit" value="Update">
+                    </form>
+
+                    <div class="content">
+                        <h1 class="text-center pt-20">Change password</h1>
+                        <form action="">
+
+                            <!-- Password -->
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password"
+                                       class="form-control"
+                                       name="password" placeholder="Password">
+                                <small class="text-danger"></small>
+                            </div>
+
+                            <input class="btn btn-primary btn-block" type="submit" value="Update">
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-3"></div>
+
+        </div>
+    </div>
+</div>
+<!-- Content wrapper end -->
+
+{% endblock %}

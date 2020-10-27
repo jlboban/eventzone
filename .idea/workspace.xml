@@ -21,42 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ba4f4770-ee47-4628-b417-56a80199ac49" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MusicianController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MusicianController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/VenueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VenueController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Musician.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Musician.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Venue.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Venue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/EventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EventType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/MusicianType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MusicianType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/dashboard/_sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/dashboard/_sidebar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/event/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/event/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/event/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/musician/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/musician/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/musician/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/musician/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/musician/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/musician/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/musician/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/musician/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/venue/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/venue/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/venue/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/venue/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/_nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,16 +168,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/admin" />
-      <recent name="$PROJECT_DIR$/templates/home" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/security" />
       <recent name="$PROJECT_DIR$/public/img/events" />
       <recent name="$PROJECT_DIR$/public/img/musicians" />
       <recent name="$PROJECT_DIR$/templates/event" />
       <recent name="$PROJECT_DIR$/templates/musician" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/admin" />
+      <recent name="$PROJECT_DIR$/templates/home" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
