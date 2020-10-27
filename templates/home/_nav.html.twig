@@ -15,7 +15,7 @@
 
     <div class="navbar-content ml-auto">
         {% if not app.user %}
-            <a href="#register" class="btn btn-sm mr-10 border" role="button">Sign up</a>
+            <a href="{{ path('app_register') }}" class="btn btn-sm mr-10 border" role="button">Sign up</a>
         {% else %}
             <div class="dropdown toggle-on-hover">
                 <button class="btn" data-toggle="dropdown" type="button" id="" aria-haspopup="true" aria-expanded="false">

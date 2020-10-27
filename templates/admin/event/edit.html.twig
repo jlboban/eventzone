@@ -4,12 +4,11 @@
 
 {% block body %}
 
-    <h1>Edit Event</h1>
+    <h1 class="text-center">
+        <i class="fa fa-calendar-alt" aria-hidden="true"></i>
+        Edit Event | <strong>{{ event.name }}</strong>
+    </h1>
 
     {{ include('admin/event/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('admin_event_index') }}">back to list</a>
-
-    {{ include('admin/event/_delete_form.html.twig') }}
 
 {% endblock %}

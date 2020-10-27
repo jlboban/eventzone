@@ -3,7 +3,10 @@
 {% block title %}Admin{% endblock %}
 
 {% block body %}
-    <h2>Admin | <strong>{{ admin.firstName }} {{ admin.lastName }}</strong></h2>
+    <h3>
+        <i class="fas fa-user-shield" aria-hidden="true"></i>
+        Admin | <strong>{{ admin.firstName }} {{ admin.lastName }}</strong>
+    </h3>
 
     <table class="table">
         <tbody>

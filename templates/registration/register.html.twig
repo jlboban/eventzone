@@ -3,17 +3,70 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <div class="content-wrapper">
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row row-eq-spacing-lg">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
 
+            <div class="content card shadow border">
+                {% for flashError in app.flashes('verify_email_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                {% endfor %}
 
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+                <h1 class="text-center">Register</h1>
 
-    <h1>Register</h1>
+                    {{ form_start(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                <div class="form-row row-eq-spacing-sm">
+                    <!-- First name -->
+                    <div class="col-sm form-group">
+                        {{ form_label(registrationForm.firstName) }}
+                        {{ form_widget(registrationForm.firstName) }}
+                        <small class="text-danger">{{ form_errors(registrationForm.firstName) }}</small>
+                    </div>
+
+                    <!-- Last name -->
+                    <div class="col-sm form-group">
+                        {{ form_label(registrationForm.lastName) }}
+                        {{ form_widget(registrationForm.lastName) }}
+                        <small class="text-danger">{{ form_errors(registrationForm.lastName) }}</small>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    {{ form_label(registrationForm.email) }}
+                    {{ form_widget(registrationForm.email) }}
+                    <small class="text-danger">{{ form_errors(registrationForm.email) }}</small>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    {{ form_label(registrationForm.password.first) }}
+                    {{ form_widget(registrationForm.password.first) }}
+                    <small class="text-danger">{{ form_errors(registrationForm.password.first) }}</small>
+                </div>
+
+                <!-- Confirm password -->
+                <div class="form-group">
+                    {{ form_label(registrationForm.password.second) }}
+                    {{ form_widget(registrationForm.password.second) }}
+                    <small class="text-danger">{{ form_errors(registrationForm.password.second) }}</small>
+                </div>
+
+                <input class="btn btn-primary btn-block" type="submit" value="Register">
+
+                {{ form_end(registrationForm) }}
+
+                <div class="text-center pt-5 mt-20">
+                    <a href="{{ path('app_login') }}" class="hyperlink">Already have an account? Sign in here.</a>
+                </div>
+            </div>
+
+            </div>
+        </div>
     </div>
+</div>
+
 {% endblock %}

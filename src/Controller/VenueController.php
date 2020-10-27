@@ -142,6 +142,6 @@ class VenueController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('venue_index');
+        return $this->redirectToRoute('admin_venue_index');
     }
 }

@@ -4,10 +4,11 @@
 
 {% block body %}
 
-    <h1>Create new event</h1>
+    <h1 class="text-center">
+        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+        Add Event
+    </h1>
 
     {{ include('admin/event/_form.html.twig') }}
-
-    <a href="{{ path('event_index') }}">back to list</a>
 
 {% endblock %}

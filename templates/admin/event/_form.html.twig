@@ -1,4 +1,103 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="container-fluid">
+    <div class="row row-eq-spacing-lg">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="content">
+                {{ form_start(form) }}
+
+                <!-- Name -->
+                <div class="form-group">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
+                    <small class="text-danger">{{ form_errors(form.name) }}</small>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    {{ form_label(form.description) }}
+                    {{ form_widget(form.description) }}
+                    <small class="text-danger">{{ form_errors(form.description) }}</small>
+                </div>
+
+                <!-- Start Date -->
+                <div class="form-group">
+                    {{ form_label(form.start_date) }}
+                    {{ form_widget(form.start_date) }}
+                </div>
+
+                <!-- Start Time -->
+                <div class="form-group">
+                    {{ form_label(form.start_time) }}
+                    {{ form_widget(form.start_time) }}
+                </div>
+
+                <!-- End Date -->
+                <div class="form-group">
+                    {{ form_label(form.end_date) }}
+                    {{ form_widget(form.end_date) }}
+                    {{ form_errors(form.end_date) }}
+                </div>
+
+                <!-- End Time -->
+                <div class="form-group">
+                    {{ form_label(form.end_time) }}
+                    {{ form_widget(form.end_time) }}
+                    {{ form_errors(form.end_time) }}
+                </div>
+
+                <!-- Image
+                <label class="font-weight-bold required">Image</label>
+                <div class="custom-file pb-20">
+                    <input type="file" id="file-input" name="image" data-default-value="No image chosen">
+                    <label for="file-input" style="width: 100%; text-align: center;">Choose an image</label>
+
+                    <small class="text-danger">{# form_errors(form.image) #}</small>
+                </div>
+                 -->
+
+                <!-- Musicians -->
+                <div class="form-group">
+                    {{ form_label(form.musicians) }}
+                    {{ form_widget(form.musicians) }}
+                    {{ form_errors(form.musicians) }}
+                </div>
+
+                <!-- Venues -->
+                <div class="form-group">
+                    {{ form_label(form.venues) }}
+                    {{ form_widget(form.venues) }}
+                    {{ form_errors(form.venues) }}
+                </div>
+
+                <div class="form-row row-eq-spacing-sm">
+                    <!-- Price -->
+                    <div class="col-sm form-group">
+                        {{ form_label(form.price)}}
+                        {{ form_widget(form.price)}}
+                        <small class="text-danger">{{ form_errors(form.price)}}</small>
+                    </div>
+
+                    <!-- Discount -->
+                    <div class="col-sm form-group">
+                        {{ form_label(form.discount)}}
+                        {{ form_widget(form.discount)}}
+                        <small class="text-danger">{{ form_errors(form.discount)}}</small>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="custom-file pb-20">
+                    {{ form_widget(form.image) }}
+                    {{ form_label(form.image) }}
+                    <small class="text-danger">{{ form_errors(form.image) }}</small>
+                </div>
+
+                <button class="btn w-full">{{ button_label|default('Save') }}</button>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <div class="col-lg-3"></div>
+
+    </div>
+</div>

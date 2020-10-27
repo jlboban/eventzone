@@ -27,7 +27,7 @@ class EventType extends AbstractType
             ->add('discount')
             ->add('image', FileType::class, [
                 'mapped' => false,
-                'required' => false
+                'required' => false,
             ])
             ->add('musicians', EntityType::class, [
                 'class' => Musician::class,
@@ -38,7 +38,7 @@ class EventType extends AbstractType
                     return $musician->getName();
                 },
                 'multiple' => true,
-                'expanded' => true,
+                'expanded' => false,
             ])
             ->add('venues', EntityType::class, [
                 'class' => Venue::class,
@@ -49,7 +49,7 @@ class EventType extends AbstractType
                     return $venue->getName();
                 },
                 'multiple' => true,
-                'expanded' => true,
+                'expanded' => false,
             ])
         ;
     }

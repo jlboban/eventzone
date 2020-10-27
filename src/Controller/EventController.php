@@ -45,7 +45,7 @@ class EventController extends AbstractController
     }
 
     /**
-     * @Route("event/new", name="event_new", methods={"GET","POST"})
+     * @Route("/new", name="event_new", methods={"GET","POST"})
      * @param Request $request
      * @param FileUploader $fileUploader
      * @return Response
@@ -108,7 +108,7 @@ class EventController extends AbstractController
     }
 
     /**
-     * @Route("event/{id}/edit", name="event_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="event_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Event $event
      * @return Response
@@ -133,7 +133,7 @@ class EventController extends AbstractController
     }
 
     /**
-     * @Route("event/{id}", name="event_delete", methods={"DELETE"})
+     * @Route("/{id}", name="event_delete", methods={"DELETE"})
      * @param Request $request
      * @param Event $event
      * @return Response
@@ -149,6 +149,6 @@ class EventController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('event_index');
+        return $this->redirectToRoute('admin_event_index');
     }
 }

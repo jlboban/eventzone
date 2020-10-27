@@ -4,10 +4,11 @@
 
 {% block body %}
 
-    <h1>Create new musician</h1>
+    <h1 class="text-center">
+        <i class="fas fa-music" aria-hidden="true"></i>
+        Add Musician
+    </h1>
 
     {{ include('admin/musician/_form.html.twig') }}
-
-    <a href="{{ path('musician_index') }}">back to list</a>
 
 {% endblock %}

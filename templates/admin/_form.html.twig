@@ -1,4 +1,49 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="container-fluid">
+    <div class="row row-eq-spacing-lg">
+
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="content">
+
+                {{ form_start(form)}}
+
+                <div class="form-row row-eq-spacing-sm">
+                    <!-- First name -->
+                    <div class="col-sm form-group">
+                        {{ form_label(form.firstName)}}
+                        {{ form_widget(form.firstName)}}
+                        <small class="text-danger">{{ form_errors(form.firstName)}}</small>
+                    </div>
+
+                    <!-- Last name -->
+                    <div class="col-sm form-group">
+                        {{ form_label(form.lastName)}}
+                        {{ form_widget(form.lastName)}}
+                        <small class="text-danger">{{ form_errors(form.lastName)}}</small>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    {{ form_label(form.email)}}
+                    {{ form_widget(form.email)}}
+                    <small class="text-danger">{{ form_errors(form.email)}}</small>
+                </div>
+
+                {% if form.password is defined %}
+                <!-- Password -->
+                <div class="form-group">
+                    {{ form_label(form.password)}}
+                    {{ form_widget(form.password)}}
+                    <small class="text-danger">{{ form_errors(form.password)}}</small>
+                </div>
+                {% endif %}
+
+                <button class="btn w-full">{{ button_label|default('Save') }}</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <div class="col-lg-3"></div>
+
+    </div>
+</div>

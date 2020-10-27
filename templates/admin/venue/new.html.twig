@@ -4,10 +4,11 @@
 
 {% block body %}
 
-    <h1>Create new venue</h1>
+    <h1 class="text-center">
+        <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+        Add Venue
+    </h1>
 
     {{ include('admin/venue/_form.html.twig') }}
-
-    <a href="{{ path('venue_index') }}">back to list</a>
 
 {% endblock %}

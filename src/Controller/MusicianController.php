@@ -148,6 +148,6 @@ class MusicianController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('musician_index');
+        return $this->redirectToRoute('admin_musician_index');
     }
 }

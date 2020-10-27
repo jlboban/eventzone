@@ -48,7 +48,7 @@ class AdminController extends AbstractController
 
         return $this->render('admin/new.html.twig', [
             'admin' => $user,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 
@@ -73,6 +73,7 @@ class AdminController extends AbstractController
     public function edit(Request $request, User $user): Response
     {
         $form = $this->createForm(AdminType::class, $user);
+        $form->remove('password');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
