@@ -80,19 +80,22 @@
 
                     <div class="content">
                         <h1 class="text-center pt-20">Change password</h1>
-                        <form action="">
+                        <form action="{{ path('user_reset_password') }}" method="post">
 
                             <!-- Password -->
                             <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" id="password"
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword"
                                        class="form-control"
-                                       name="password" placeholder="Password">
+                                       name="currentPassword" placeholder="Current Password">
+                                <label for="newPassword" class="mt-20">New Password</label>
+                                <input type="password" id="newPassword"
+                                       class="form-control"
+                                       name="newPassword" placeholder="Password">
                                 <small class="text-danger"></small>
                             </div>
 
                             <input class="btn btn-primary btn-block" type="submit" value="Update">
-
                         </form>
                     </div>
                 </div>

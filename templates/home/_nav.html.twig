@@ -24,9 +24,8 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="...">
                     {% if is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('dashboard') }}" class="dropdown-item">Dashboard</a>
-                    {% else %}
-                        <a href="{{ path('user_settings') }}" class="dropdown-item">Settings</a>
                     {% endif %}
+                        <a href="{{ path('user_settings') }}" class="dropdown-item">Settings</a>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-content">
                         <a href="{{ path('app_logout') }}">

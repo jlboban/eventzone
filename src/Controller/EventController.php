@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Event;
 use App\Form\EventType;
+use App\Repository\EventMusicianRepository;
 use App\Repository\EventRepository;
 use App\Service\FileUploader;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -20,12 +21,14 @@ class EventController extends AbstractController
     /**
      * @Route("/", name="event_index", methods={"GET"})
      * @param EventRepository $eventRepository
+     * @param EventMusicianRepository $emRepository
      * @return Response
      */
-    public function index(EventRepository $eventRepository): Response
+    public function index(EventRepository $eventRepository, EventMusicianRepository $emRepository): Response
     {
         return $this->render('event/index.html.twig', [
             'events' => $eventRepository->findAll(),
+            'musicians' => $emRepository->findAll(),
         ]);
     }
 
@@ -40,7 +43,7 @@ class EventController extends AbstractController
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         return $this->render('admin/event/index.html.twig', [
-            'events' => $eventRepository->findAll(),
+            'events' => $eventRepository->findAll()
         ]);
     }
 

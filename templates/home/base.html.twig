@@ -20,7 +20,26 @@
 <!-- Page wrapper start -->
 <div id="page-wrapper" class="page-wrapper with-navbar with-navbar-fixed-bottom">
 
+    <!-- Sticky alerts -->
+    <div class="sticky-alerts">
+
+    </div>
+
     {{ include('home/_nav.html.twig') }}
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-primary filled-lm" role="alert">
+            <h4 class="alert-heading"></h4>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger filled-lm" role="alert">
+            <h4 class="alert-heading"></h4>
+            {{ message }}
+        </div>
+    {% endfor %}
 
     {% block body %}{% endblock %}
 

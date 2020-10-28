@@ -5,51 +5,66 @@
 {% block body %}
     <h3>Event | <strong>{{ event.name }}</strong></h3>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>#</th>
-                <td>{{ event.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ event.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td><div class="text-wrap text-smoothing-antialiased">{{ event.description }}</div></td>
-            </tr>
-            <tr>
-                <th>Start_date</th>
-                <td>{{ event.startDate ? event.startDate|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>End_date</th>
-                <td>{{ event.endDate ? event.endDate|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Start_time</th>
-                <td>{{ event.startTime ? event.startTime|date('H:i') : '' }}</td>
-            </tr>
-            <tr>
-                <th>End_time</th>
-                <td>{{ event.endTime ? event.endTime|date('H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ event.price }}</td>
-            </tr>
-            <tr>
-                <th>Discount</th>
-                <td>{{ event.discount }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>
-                    <img class="img-fluid border shadow-lg w-250" src="{{ asset('img/events/' ~ event.image) }}" alt="Musician Image">
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- Content wrapper start -->
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="card border">
+                <div class="row">
+
+                    <div class="col-sm-5">
+                        <div class="mw-full">
+                            <div class="card p-0 border">
+                                <img src="{{ asset('img/events/' ~ event.image) }}" class="img-fluid rounded-top" alt="Event image">
+                                <div class="content">
+                                    <h1 class="content-title font-weight-bolder text-center">
+                                        {{ event.name }}
+                                    </h1>
+                                    <h6 class="content-title font-weight-light text-center">
+
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-7">
+                        <div class="card p-0 border">
+                            <div class="content font-weight-light">
+                                {% for venue in event.venues %}
+                                <p class="text-muted">
+                                    {{ venue.name }} | <i class="fas fa-users"></i> {{ venue.capacity }}
+                                </p>
+                                <p class="text-muted">
+                                    {{ venue.address }} {{ venue.postcode}} {{ venue.city }}
+                                </p>
+                                <p class="text-muted">
+                                     {{ venue.country }}
+                                </p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    {% for musician in event.musicians %}
+                    <div  class="col-sm-5">
+                        <div class="mw-full">
+                            <div class="card p-0 border">
+                                <img src="{{ asset('img/musicians/' ~ musician.image) }}" class="img-fluid rounded-top" alt="Musician image">
+                                <div class="content">
+                                    <h3 class="content-title font-weight-bold">
+                                        {{ musician.name }} |
+                                    </h3>
+                                    {{ musician.description }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content wrapper end -->
 
 {% endblock %}
