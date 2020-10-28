@@ -18,7 +18,9 @@
                                 {{ musician.name }}
                             </h2>
                             <h2 class="content-title">
-                                Genre
+                                {% for genre in musician.genre %}
+                                    {{ genre.name }}
+                                {% endfor %}
                             </h2>
                             <div class="text-right">
                                 <a href="{{ path('musician_show', {'id': musician.id}) }}" class="btn">Details</a>

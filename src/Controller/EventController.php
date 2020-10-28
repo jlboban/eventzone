@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Booking;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventMusicianRepository;
@@ -26,9 +27,14 @@ class EventController extends AbstractController
      */
     public function index(EventRepository $eventRepository, EventMusicianRepository $emRepository): Response
     {
+        $user = $this->getUser();
+        $booking = new Booking();
+        $bookings = $user->getBookings();
+
         return $this->render('event/index.html.twig', [
             'events' => $eventRepository->findAll(),
             'musicians' => $emRepository->findAll(),
+            'bookings' => $bookings,
         ]);
     }
 

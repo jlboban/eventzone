@@ -1,0 +1,14 @@
+{% extends 'admin/dashboard/base.html.twig' %}
+
+{% block title %}Edit Genre{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center">
+        <i class="fa fa-guitar" aria-hidden="true"></i>
+        Edit Genre | <strong>{{ genre.name }}</strong>
+    </h1>
+
+    {{ include('admin/genre/_form.html.twig', {'button_label': 'Update'}) }}
+
+{% endblock %}

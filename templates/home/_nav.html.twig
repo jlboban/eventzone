@@ -23,9 +23,9 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="...">
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('dashboard') }}" class="dropdown-item">Dashboard</a>
+                        <a href="{{ path('dashboard') }}" class="dropdown-item"><i class="fa fa-chart-bar ml-5" aria-hidden="true"></i> Dashboard</a>
                     {% endif %}
-                        <a href="{{ path('user_settings') }}" class="dropdown-item">Settings</a>
+                        <a href="{{ path('user_settings') }}" class="dropdown-item"><i class="fas fa-cog ml-5" aria-hidden="true"></i> Settings</a>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-content">
                         <a href="{{ path('app_logout') }}">

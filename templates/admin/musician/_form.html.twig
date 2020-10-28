@@ -14,16 +14,25 @@
                     <small class="text-danger">{{ form_errors(form.name)}}</small>
                 </div>
 
+                <!-- Description -->
                 <div class="col-sm form-group">
                     {{ form_label(form.description)}}
                     {{ form_widget(form.description)}}
                     <small class="text-danger">{{ form_errors(form.description)}}</small>
                 </div>
 
+                <!-- Image -->
                 <div class="col-sm form-group">
                     {{ form_widget(form.image)}}
                     {{ form_label(form.image)}}
                     <small class="text-danger">{{ form_errors(form.image)}}</small>
+                </div>
+
+                <!-- Genres -->
+                <div class="form-group">
+                    {{ form_label(form.genre) }}
+                    {{ form_widget(form.genre) }}
+                    {{ form_errors(form.genre) }}
                 </div>
 
                 <button class="btn w-full">{{ button_label|default('Save') }}</button>

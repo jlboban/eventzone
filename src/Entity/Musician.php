@@ -36,7 +36,7 @@ class Musician
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Image
+     * @Assert\Image(maxSize="100k", groups = {"create"})
      */
     private ?string $image;
 
@@ -46,9 +46,15 @@ class Musician
      */
     private Collection $events;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Genre::class, inversedBy="musicians")
+     */
+    private Collection $genre;
+
     public function __construct()
     {
         $this->events = new ArrayCollection();
+        $this->genre = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -115,6 +121,32 @@ class Musician
         if ($this->events->contains($event)) {
             $this->events->removeElement($event);
             $event->removeMusician($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Genre[]
+     */
+    public function getGenre(): Collection
+    {
+        return $this->genre;
+    }
+
+    public function addGenre(Genre $genre): self
+    {
+        if (!$this->genre->contains($genre)) {
+            $this->genre[] = $genre;
+        }
+
+        return $this;
+    }
+
+    public function removeGenre(Genre $genre): self
+    {
+        if ($this->genre->contains($genre)) {
+            $this->genre->removeElement($genre);
         }
 
         return $this;

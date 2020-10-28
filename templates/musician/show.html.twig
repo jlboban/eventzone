@@ -13,12 +13,14 @@
                     <div class="mw-full">
                         <div class="card p-0 border">
                             <img src="{{ asset('img/musicians/' ~ musician.image) }}" class="img-fluid rounded-top" alt="Musician image">
-                            <div class="content h-100">
+                            <div class="content">
                                 <h1 class="content-title font-weight-bolder text-center">
                                     {{ musician.name }}
                                 </h1>
                                 <h6 class="content-title font-weight-light text-center">
-                                    Genre
+                                    {% for genre in musician.genre %}
+                                    <i class="fas fa-compact-disc"></i> {{ genre.name }} </br>
+                                    {% endfor %}
                                 </h6>
                             </div>
                         </div>

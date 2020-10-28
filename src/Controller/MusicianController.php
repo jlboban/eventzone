@@ -120,6 +120,13 @@ class MusicianController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $imageToDelete = $musician->getImage();
+
+            if ($imageToDelete) {
+                unset($imageToDelete);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('musician_index');

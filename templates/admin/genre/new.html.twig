@@ -1,0 +1,14 @@
+{% extends 'admin/dashboard/base.html.twig' %}
+
+{% block title %}New Genre{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center">
+        <i class="fa fa-guitar" aria-hidden="true"></i>
+        Add Genre
+    </h1>
+
+    {{ include('admin/genre/_form.html.twig') }}
+
+{% endblock %}

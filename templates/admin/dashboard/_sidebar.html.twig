@@ -48,6 +48,30 @@
             </span>
             Add
         </a>
+
+        <!-- Genres -->
+        <div class="dropdown pt-10 d-flex justify-content-center">
+            <button class="sidebar-link-with-icon btn" data-toggle="dropdown" type="button" id="dropdown-toggle-btn-1" aria-haspopup="true" aria-expanded="false">
+                <h5 class="sidebar-title"><i class="fa fa-guitar" aria-hidden="true"></i> Genres</h5>
+            </button>
+            <div class="dropdown-menu dropdown-menu-center" aria-labelledby="dropdown-toggle-btn-1">
+
+                    <a href="{{ path('genre_index') }}" class="sidebar-link sidebar-link-with-icon">
+                        <span class="sidebar-icon">
+                            <i class="fa fa-list" aria-hidden="true"></i>
+                        </span>
+                        List
+                    </a>
+
+                    <a href="{{ path('genre_new') }}" class="sidebar-link sidebar-link-with-icon">
+                        <span class="sidebar-icon">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                        Add
+                    </a>
+
+            </div>
+        </div>
         <br />
 
         <!-- Venues -->
