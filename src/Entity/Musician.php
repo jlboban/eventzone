@@ -29,7 +29,7 @@ class Musician
     private ?string $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      * @Assert\NotBlank
      */
     private ?string $description;

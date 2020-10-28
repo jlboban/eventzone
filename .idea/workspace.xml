@@ -21,18 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ba4f4770-ee47-4628-b417-56a80199ac49" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MusicianController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MusicianController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Event.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Musician.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Musician.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/MusicianType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MusicianType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/dashboard/_sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/dashboard/_sidebar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/musician/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/musician/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/_nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/musician/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/musician/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/musician/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/musician/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +202,7 @@
       <workItem from="1603695854107" duration="22112000" />
       <workItem from="1603781979603" duration="15976000" />
       <workItem from="1603801456812" duration="4730000" />
-      <workItem from="1603868593509" duration="20029000" />
+      <workItem from="1603868593509" duration="20625000" />
     </task>
     <servers />
   </component>
