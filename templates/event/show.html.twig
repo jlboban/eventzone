@@ -20,6 +20,12 @@
                                         {{ event.name }}
                                     </h1>
                                     <h6 class="content-title font-weight-light text-center">
+                                        <form method="post" action="{{ path('booking_new', {'id': event.id}) }}">
+                                            <button class="btn btn-danger text-dark">
+                                                <i class="fas fa-money-check-alt"></i>
+                                                Book event
+                                            </button>
+                                        </form>
 
                                     </h6>
                                 </div>

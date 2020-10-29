@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\BookingRepository;
+use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,19 +32,19 @@ class Booking
     private ?Event $event;
 
     /**
-     * @ORM\Column(type="date")
-     */
-    private ?DateTimeInterface $order_date;
-
-    /**
-     * @ORM\Column(type="time")
-     */
-    private ?DateTimeInterface $order_time;
-
-    /**
      * @ORM\Column(type="decimal", precision=6, scale=2)
      */
     private ?string $final_price;
+
+    /**
+     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+     */
+    private ?DateTimeInterface $created_at;
+
+    public function __construct()
+    {
+        $this->created_at = new DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -74,30 +75,6 @@ class Booking
         return $this;
     }
 
-    public function getOrderDate(): ?DateTimeInterface
-    {
-        return $this->order_date;
-    }
-
-    public function setOrderDate(DateTimeInterface $order_date): self
-    {
-        $this->order_date = $order_date;
-
-        return $this;
-    }
-
-    public function getOrderTime(): ?DateTimeInterface
-    {
-        return $this->order_time;
-    }
-
-    public function setOrderTime(DateTimeInterface $order_time): self
-    {
-        $this->order_time = $order_time;
-
-        return $this;
-    }
-
     public function getFinalPrice(): ?string
     {
         return $this->final_price;
@@ -106,6 +83,18 @@ class Booking
     public function setFinalPrice(string $final_price): self
     {
         $this->final_price = $final_price;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
 
         return $this;
     }
