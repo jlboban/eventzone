@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Booking;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventMusicianRepository;
@@ -19,6 +18,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class EventController extends AbstractController
 {
+    private const IMAGE_PATH = "img/events/";
+
     /**
      * @Route("/", name="event_index", methods={"GET"})
      * @param EventRepository $eventRepository
@@ -27,8 +28,6 @@ class EventController extends AbstractController
      */
     public function index(EventRepository $eventRepository, EventMusicianRepository $emRepository): Response
     {
-        $user = $this->getUser();
-
         return $this->render('event/index.html.twig', [
             'events' => $eventRepository->findAll(),
             'musicians' => $emRepository->findAll(),
@@ -43,8 +42,6 @@ class EventController extends AbstractController
      */
     public function adminIndex(EventRepository $eventRepository): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
-
         return $this->render('admin/event/index.html.twig', [
             'events' => $eventRepository->findAll()
         ]);
@@ -59,8 +56,6 @@ class EventController extends AbstractController
      */
     public function new(Request $request, FileUploader $fileUploader): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
-
         $event = new Event();
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
@@ -79,7 +74,9 @@ class EventController extends AbstractController
             $entityManager->persist($event);
             $entityManager->flush();
 
-            return $this->redirectToRoute('event_index');
+            $this->addFlash('success', 'Successfully created new event.');
+
+            return $this->redirectToRoute('event_new');
         }
 
         return $this->render('admin/event/new.html.twig', [
@@ -117,19 +114,34 @@ class EventController extends AbstractController
      * @Route("/{id}/edit", name="event_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Event $event
+     * @param FileUploader $fileUploader
      * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
-    public function edit(Request $request, Event $event): Response
+    public function edit(Request $request, Event $event, FileUploader $fileUploader): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
-
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('event_index');
+            $image = $form->get('image')->getData();
+            $oldImage = $event->getImage();
+
+            if ($image !== null) {
+                $imageFileName = $fileUploader->upload($image, 'events');
+                $event->setImage($imageFileName);
+
+                if (file_exists(self::IMAGE_PATH.$oldImage)) {
+                    unlink(self::IMAGE_PATH.$oldImage);
+                }
+            }
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($event);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin_event_index');
         }
 
         return $this->render('admin/event/edit.html.twig', [
@@ -147,9 +159,14 @@ class EventController extends AbstractController
      */
     public function delete(Request $request, Event $event): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
-
         if ($this->isCsrfTokenValid('delete'.$event->getId(), $request->request->get('_token'))) {
+
+            $image = $event->getImage();
+
+            if (file_exists(self::IMAGE_PATH.$image)) {
+                unlink(self::IMAGE_PATH.$image);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($event);
             $entityManager->flush();

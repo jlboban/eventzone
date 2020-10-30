@@ -68,7 +68,7 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Image
+     * @Assert\Image(maxSize="100k")
      */
     private ?string $image;
 

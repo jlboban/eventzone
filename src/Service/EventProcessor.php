@@ -4,7 +4,6 @@ namespace App\Service;
 
 use App\Entity\Event;
 use DateTime;
-use DateTimeInterface;
 use Exception;
 
 /**
@@ -21,6 +20,7 @@ class EventProcessor
     private const MIN_DISCOUNT = 0;
 
     private Event $event;
+    private float $discount;
 
     public function __construct(Event $event)
     {
@@ -43,8 +43,9 @@ class EventProcessor
      * @param float $percentageMin
      * @param float $percentageMax
      * @return float|int
+     * @throws Exception
      */
-    private function getDiscountPercentage(int $daysMin, int $daysMax, float $percentageMin, float $percentageMax)
+    private function calculateDiscount(int $daysMin, int $daysMax, float $percentageMin, float $percentageMax)
     {
         $daysUntilEvent = $this->getDaysUntilEvent();
 
@@ -53,7 +54,14 @@ class EventProcessor
         }
 
         $rangeMapper = new RangeMapper();
-        return $rangeMapper->map($daysUntilEvent, $daysMin, $daysMax, $percentageMin, $percentageMax);
+        return floor($this->discount = $rangeMapper->map($daysUntilEvent, $daysMin, $daysMax, $percentageMin, $percentageMax));
+    }
+
+    public function getCurrentDiscount()
+    {
+        $eventDiscount = $this->event->getDiscount();
+        $this->discount = $this->calculateDiscount(self::DISCOUNT_TO, self::DISCOUNT_FROM, self::MIN_DISCOUNT, $eventDiscount);
+        return $this->discount;
     }
 
     /**
@@ -63,11 +71,9 @@ class EventProcessor
     public function getFinalPrice()
     {
         $price = $this->event->getPrice();
-        $discount = $this->event->getDiscount();
-
-        $this->getDiscountPercentage(self::DISCOUNT_TO, self::DISCOUNT_FROM, self::MIN_DISCOUNT, $discount);
+        $discount = $this->getCurrentDiscount();
 
         $x = $price * $discount / 100;
-        return floor($price - $x);
+        return $price - $x;
     }
 }

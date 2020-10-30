@@ -1,0 +1,134 @@
+{% extends 'home/base.html.twig' %}
+
+{% block title %}Booking | {{ event.name }}{% endblock %}
+
+{% block body %}
+<h3>Booking | <strong>{{ event.name }}</strong></h3>
+
+<!-- Content wrapper start -->
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="card border">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card p-0 border">
+                        <div class="content">
+                            <h2 class="content-title font-weight-bolder">
+                                <i class="fas fa-user"></i>
+                                {{ user.firstName }} {{ user.lastName }}
+                            </h2>
+                            <h2 class="content-title font-weight-bolder">
+                                <i class="fas fa-envelope"></i>
+                                {{ user.email }}
+                            </h2>
+                        </div>
+                    </div>
+                    {% if user.address is not defined %}
+                    <div class="card p-0 border">
+                        <div class="content">
+                            <h4>Billing Address</h4>
+                            <p class="text-muted">
+                                {{ user.address }} {{ user.postcode }}
+                                {{ user.city }}
+                            </p>
+                            <p class="text-muted">
+                                {{ user.country }}
+                            </p>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="card p-0 border">
+                        <div class="content">
+                            <h3 class="text-danger">
+                                <i class="fas fa-exclamation-triangle"></i> Please update your billing address in the settings menu.
+                            </h3>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="card p-0 border">
+                        <div class="content">
+                            <h4>Price</h4>
+                            <h2 class="content-title font-weight-bolder">
+                                <i class="fas fa-money-bill"></i>
+                                {{ event.price }}
+                            </h2>
+                            <hr>
+                            {% if currentDiscount is not null %}
+                            <h4 class="font-weight-bold">
+                                <i class="fas fa-crow" style="color: orangered"></i> Early Bird Discount
+                            </h4>
+                            <h2 class="content-title font-weight-bolder">
+                                <i class="fas fa-tags" style="color: orangered"></i>
+                                {{ currentDiscount }} %
+                            </h2>
+                            <hr>
+                            <h2 class="content-title font-weight-bolder">
+                                <i class="fas fa-money-bill"></i>
+                                Price: {{ finalPrice }}
+                            </h2>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div  class="col-sm-6">
+                    <div class="mw-full">
+                        <div class="card p-0 border">
+
+                            <img src="{{ asset('img/events/' ~ event.image)}}" class="img-fluid rounded-top" alt="Event image">
+
+                            <div class="content">
+                                <h2 class="content-title font-weight-bolder text-center">
+                                    {{ event.name }}
+                                </h2>
+                                {% for musician in event.musicians %}
+                                <h3 class="content-title font-weight-bold">
+                                    {{ musician.name }}
+                                </h3>
+                                {% endfor %}
+                                {% for venue in event.venues %}
+                                <p class="text-muted">
+                                    {{ venue.name }}
+                                    <i class="fas fa-user"></i> {{ venue.capacity }}
+                                </p>
+                                <p class="text-muted">
+                                    {{ venue.address }} {{ venue.postcode }}
+                                    {{ venue.city }}
+                                </p>
+                                <p class="text-muted">
+                                    {{ venue.country }}
+                                </p>
+                                    <hr>
+                                {% endfor %}
+                                {% if userBooking %}
+                                    <div class="d-flex justify-content-end">
+                                        <form action="" method="post" class="pr-10">
+                                            <button class="btn btn-lg font-weight-bold"><i class="fas fa-file-pdf"></i> Get PDF</button>
+                                        </form>
+                                        <form action="{{ path('booking_delete', {'id': userBooking.id}) }}" method="post">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ userBooking.id) }}">
+                                            <button class="btn btn-lg font-weight-bold btn-danger"><i class="fas fa-times"></i> Cancel</button>
+                                        </form>
+                                    </div>
+                                {% else %}
+                                <div class="text-right">
+                                    <form action="{{ path('booking_new', {'id': event.id}) }}" method="post">
+                                        <button class="btn btn-lg font-weight-bold ">
+                                            <i class="fas fa-check"></i>Confirm
+                                        </button>
+                                    </form>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Content wrapper end -->
+
+{% endblock %}
