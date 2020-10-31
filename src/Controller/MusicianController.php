@@ -17,6 +17,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class MusicianController extends AbstractController
 {
+    private const IMAGE_PATH = "img/musicians/";
+
     /**
      * @Route("/", name="musician_index", methods={"GET"})
      * @param MusicianRepository $musicianRepository
@@ -51,8 +53,6 @@ class MusicianController extends AbstractController
      */
     public function new(Request $request, FileUploader $fileUploader): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
-
         $musician = new Musician();
         $form = $this->createForm(MusicianType::class, $musician);
         $form->handleRequest($request);
@@ -71,7 +71,9 @@ class MusicianController extends AbstractController
             $entityManager->persist($musician);
             $entityManager->flush();
 
-            return $this->redirectToRoute('musician_index');
+            $this->addFlash('success', 'Successfully added new musician.');
+
+            return $this->redirectToRoute('musician_new');
         }
 
         return $this->render('admin/musician/new.html.twig', [
@@ -109,27 +111,34 @@ class MusicianController extends AbstractController
      * @Route("/{id}/edit", name="musician_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Musician $musician
+     * @param FileUploader $fileUploader
      * @return Response
      * @IsGranted("ROLE_ADMIN")
      */
-    public function edit(Request $request, Musician $musician): Response
+    public function edit(Request $request, Musician $musician, FileUploader $fileUploader): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
-
         $form = $this->createForm(MusicianType::class, $musician);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $imageToDelete = $musician->getImage();
+            $image = $form->get('image')->getData();
+            $oldImage = $musician->getImage();
 
-            if ($imageToDelete) {
-                unset($imageToDelete);
+            if ($image !== null) {
+                $imageFileName = $fileUploader->upload($image, 'musicians');
+                $musician->setImage($imageFileName);
+
+                if (file_exists(self::IMAGE_PATH.$oldImage)) {
+                    unlink(self::IMAGE_PATH.$oldImage);
+                }
             }
 
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($musician);
+            $entityManager->flush();
 
-            return $this->redirectToRoute('musician_index');
+            return $this->redirectToRoute('admin_musician_index');
         }
 
         return $this->render('admin/musician/edit.html.twig', [
@@ -147,9 +156,14 @@ class MusicianController extends AbstractController
      */
     public function delete(Request $request, Musician $musician): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
-
         if ($this->isCsrfTokenValid('delete'.$musician->getId(), $request->request->get('_token'))) {
+
+            $image = $musician->getImage();
+
+            if (file_exists(self::IMAGE_PATH.$image)) {
+                unlink(self::IMAGE_PATH.$image);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($musician);
             $entityManager->flush();

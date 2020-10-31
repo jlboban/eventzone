@@ -34,7 +34,7 @@ class Venue
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Image
+     * @Assert\Image(maxSize="100k", groups = {"create"})
      */
     private ?string $image;
 

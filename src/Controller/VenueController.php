@@ -17,6 +17,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class VenueController extends AbstractController
 {
+    private const IMAGE_PATH = "img/venues/";
+
     /**
      * @Route("/", name="venue_index", methods={"GET"})
      * @param VenueRepository $venueRepository
@@ -69,7 +71,9 @@ class VenueController extends AbstractController
             $entityManager->persist($venue);
             $entityManager->flush();
 
-            return $this->redirectToRoute('venue_index');
+            $this->addFlash('success', 'Successfully added new venue.');
+
+            return $this->redirectToRoute('venue_new');
         }
 
         return $this->render('admin/venue/new.html.twig', [
@@ -107,18 +111,34 @@ class VenueController extends AbstractController
      * @Route("/{id}/edit", name="venue_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Venue $venue
+     * @param FileUploader $fileUploader
      * @return Response
      * @IsGranted("ROLE_ADMIN")
      */
-    public function edit(Request $request, Venue $venue): Response
+    public function edit(Request $request, Venue $venue, FileUploader $fileUploader): Response
     {
         $form = $this->createForm(VenueType::class, $venue);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('venue_index');
+            $image = $form->get('image')->getData();
+            $oldImage = $venue->getImage();
+
+            if ($image !== null) {
+                $imageFileName = $fileUploader->upload($image, 'venues');
+                $venue->setImage($imageFileName);
+
+                if (file_exists(self::IMAGE_PATH.$oldImage)) {
+                    unlink(self::IMAGE_PATH.$oldImage);
+                }
+            }
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($venue);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin_venue_index');
         }
 
         return $this->render('admin/venue/edit.html.twig', [
@@ -137,6 +157,13 @@ class VenueController extends AbstractController
     public function delete(Request $request, Venue $venue): Response
     {
         if ($this->isCsrfTokenValid('delete'.$venue->getId(), $request->request->get('_token'))) {
+
+            $image = $venue->getImage();
+
+            if (file_exists(self::IMAGE_PATH.$image)) {
+                unlink(self::IMAGE_PATH.$image);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($venue);
             $entityManager->flush();

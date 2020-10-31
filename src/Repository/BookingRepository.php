@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Booking;
+use App\Entity\Event;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,6 +19,17 @@ class BookingRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Booking::class);
+    }
+
+    public function findUserBooking(User $user, Event $event)
+    {
+        $qb = $this->createQueryBuilder('b')
+            ->where('b.user = :user')
+            ->andWhere('b.event = :event')
+            ->setParameter('user', $user)
+            ->setParameter('event', $event);
+
+        return $query = $qb->getQuery()->getOneOrNullResult();
     }
 
     // /**

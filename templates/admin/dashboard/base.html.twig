@@ -29,6 +29,20 @@
             <div class="row row-eq-spacing-lg">
                 <div class="col-lg-12">
 
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-primary filled-lm mb-20" role="alert">
+                            <h1 class="alert-heading font-weight-bolder">Success!</h1>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+
+                    {% for message in app.flashes('error') %}
+                        <div class="alert alert-danger filled-lm pb-20" role="alert">
+                            <h1 class="alert-heading font-weight-bolder">Error!</h1>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+
                     {% block body %}{% endblock %}
 
                 </div>

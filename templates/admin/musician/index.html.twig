@@ -21,7 +21,9 @@
         <tr>
             <td>{{ musician.id }}</td>
             <td>{{ musician.name }}</td>
-            <td class="text-break w-200">{{ musician.description }}</td>
+            <td>
+                <p class="description">{{ musician.description }}</p>
+            </td>
             <td>
                 <img class="img-fluid border shadow-lg w-250 mw-lg-full" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
             </td>

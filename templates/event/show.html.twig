@@ -20,6 +20,12 @@
                                         {{ event.name }}
                                     </h1>
                                     <h6 class="content-title font-weight-light text-center">
+                                        <a href="{{ path('booking_show', {'id': event.id}) }}">
+                                            <button class="btn btn-danger text-dark">
+                                                <i class="fas fa-money-check-alt"></i>
+                                                Booking
+                                            </button>
+                                        </a>
 
                                     </h6>
                                 </div>
@@ -52,9 +58,11 @@
                                 <img src="{{ asset('img/musicians/' ~ musician.image) }}" class="img-fluid rounded-top" alt="Musician image">
                                 <div class="content">
                                     <h3 class="content-title font-weight-bold">
-                                        {{ musician.name }} |
+                                        {{ musician.name }}
                                     </h3>
-                                    {{ musician.description }}
+                                    {% for genre in musician.genre %}
+                                        {{ genre.name }}
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
