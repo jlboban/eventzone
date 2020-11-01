@@ -21,7 +21,16 @@ class BookingRepository extends ServiceEntityRepository
         parent::__construct($registry, Booking::class);
     }
 
-    public function findUserBooking(User $user, Event $event)
+    public function isUserBooked(User $user): bool
+    {
+        $qb = $this->createQueryBuilder('b')
+            ->where('b.user = :user')
+            ->setParameter('user', $user);
+
+        return $query = $qb->getQuery()->getOneOrNullResult() ? true : false;
+    }
+
+    public function getUserBooking(User $user, Event $event)
     {
         $qb = $this->createQueryBuilder('b')
             ->where('b.user = :user')

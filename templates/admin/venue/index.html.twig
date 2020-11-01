@@ -12,9 +12,7 @@
             <th>#</th>
             <th>Name</th>
             <th>Capacity</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>Postcode</th>
+
             <th>Country</th>
             <th class="text-center">Image</th>
             <th class="text-center">Actions</th>
@@ -26,12 +24,10 @@
             <td>{{ venue.id }}</td>
             <td>{{ venue.name }}</td>
             <td>{{ venue.capacity }}</td>
-            <td>{{ venue.address }}</td>
-            <td>{{ venue.city }}</td>
-            <td>{{ venue.postcode }}</td>
+
             <td>{{ venue.country }}</td>
-            <td>
-                <img class="img-fluid border shadow-lg w-250" src="{{ asset('img/venues/' ~ venue.image) }}" alt="Venue Image">
+            <td class="d-flex justify-content-center">
+                <img class="img-fluid border shadow-lg table-image" src="{{ asset('img/venues/' ~ venue.image) }}" alt="Venue Image">
             </td>
             <td>
                 <div class="btn-group-vertical d-flex align-content-center">
@@ -52,7 +48,7 @@
         </tr>
     {% else %}
         <tr>
-            <td colspan="9">No records found.</td>
+            <td colspan="6">No records found.</td>
         </tr>
     {% endfor %}
     <tr>

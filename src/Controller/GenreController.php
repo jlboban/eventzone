@@ -6,6 +6,7 @@ use App\Entity\Genre;
 use App\Form\GenreType;
 use App\Repository\GenreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,7 +44,9 @@ class GenreController extends AbstractController
             $entityManager->persist($genre);
             $entityManager->flush();
 
-            return $this->redirectToRoute('genre_index');
+            $this->addFlash('success', 'Successfully added new genre.');
+
+            return $this->redirectToRoute('genre_new');
         }
 
         return $this->render('admin/genre/new.html.twig', [
@@ -102,5 +105,19 @@ class GenreController extends AbstractController
         }
 
         return $this->redirectToRoute('genre_index');
+    }
+
+    /**
+     * @Route("/search", name="genre_search", methods="GET")
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getGenresApi(Request $request)
+    {
+        $genres = $this->getDoctrine()
+            ->getRepository(Genre::class)
+            ->findAllMatching($request->query->get('genre'));
+
+        return $this->json(['genres' => $genres]);
     }
 }
