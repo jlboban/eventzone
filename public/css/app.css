@@ -41,9 +41,38 @@
 }
 
 .description {
-    width: 30rem;
-    white-space: nowrap;
-    word-break: break-word;
+    width: 20rem;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.long-description {
+    word-wrap:break-word;
+}
+
+.table-image {
+    max-height: 10rem;
+}
+
+#search input[type=search] {
+    width: 15px;
+    padding-left: 10px;
+    color: transparent;
+    cursor: pointer;
+}
+#search input[type=search]:hover {
+    background-color: #fff;
+}
+#search input[type=search]:focus {
+    width: 130px;
+    padding-left: 32px;
+    color: #000;
+    background-color: #fff;
+    cursor: auto;
+}
+#search input:-moz-placeholder {
+    color: transparent;
+}
+#search input::-webkit-input-placeholder {
+    color: transparent;
 }

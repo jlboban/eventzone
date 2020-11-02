@@ -29,8 +29,8 @@
             <td>{{ event.endDate ? event.endDate|date('Y-m-d') : '' }}</td>
             <td>{{ event.price }}</td>
             <td>{{ event.discount }}</td>
-            <td>
-                <img class="img-fluid border shadow-lg w-250" src="{{ asset('img/events/' ~ event.image) }}" alt="Musician Image">
+            <td class="d-flex justify-content-center">
+                <img class="img-fluid border shadow-lg table-image" src="{{ asset('img/events/' ~ event.image) }}" alt="Musician Image">
             </td>
             <td>
                 <div class="btn-group-vertical d-flex align-content-center">

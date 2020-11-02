@@ -18,6 +18,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class BookingController extends AbstractController
 {
+    private const CANCEL_BOOKING_DAYS = 7;
+
     /**
      * @Route("/new/{id}", name="booking_new", methods={"POST"})
      * @param Event $event
@@ -58,20 +60,24 @@ class BookingController extends AbstractController
     public function show(Event $event, BookingRepository $bookingRepository): Response
     {
         $user = $this->getUser();
-        $userBooking = $bookingRepository->findUserBooking($user, $event);
+        $isBooked = $bookingRepository->isUserBooked($user);
+        $userBooking = $bookingRepository->getUserBooking($user, $event);
 
         $eventProcessor = new EventProcessor($event);
         $currentDiscount = $eventProcessor->getCurrentDiscount();
         $finalPrice = $eventProcessor->getFinalPrice();
+        $isCancellable = $eventProcessor->getDaysUntilEvent() <= self::CANCEL_BOOKING_DAYS ? false : true;
 
         return $this->render('booking/show.html.twig', [
             'event' => $event,
-            'user' => $user,
-            'userBooking' => $userBooking,
             'musicians' => $event->getMusicians(),
             'venues' => $event->getVenues(),
+            'user' => $user,
+            'userBooking' => $userBooking,
             'currentDiscount' => $currentDiscount,
             'finalPrice' => $finalPrice,
+            'isBooked' => $isBooked,
+            'isCancellable' => $isCancellable,
         ]);
     }
 
@@ -92,5 +98,4 @@ class BookingController extends AbstractController
 
         return $this->redirectToRoute("booking_show", ['id' => $booking->getEvent()->getId()]);
     }
-
 }

@@ -8,7 +8,7 @@
         Venue | <strong>{{ venue.name }}</strong>
     </h3>
 
-    <table class="table">
+    <table class="table table-striped table-responsive table-hover">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -41,7 +41,7 @@
             <tr>
                 <th>Image</th>
                 <td>
-                    <img class="img-fluid border shadow-lg w-250" src="{{ asset('img/venues/' ~ venue.image) }}" alt="Musician Image">
+                    <img class="img-fluid border shadow-lg table-image" src="{{ asset('img/venues/' ~ venue.image) }}" alt="Musician Image">
                 </td>
             </tr>
         </tbody>

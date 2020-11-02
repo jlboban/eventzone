@@ -24,8 +24,8 @@
             <td>
                 <p class="description">{{ musician.description }}</p>
             </td>
-            <td>
-                <img class="img-fluid border shadow-lg w-250 mw-lg-full" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
+            <td class="d-flex justify-content-center">
+                <img class="img-fluid border shadow-lg table-image" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
             </td>
             <td>
                 <div class="btn-group-vertical d-flex align-content-center">
@@ -49,7 +49,7 @@
             <td colspan="5">No records found.</td>
         </tr>
     {% endfor %}
-
+    <tr>
     </tbody>
 </table>
 

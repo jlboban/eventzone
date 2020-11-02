@@ -8,7 +8,7 @@
         Musician | <strong>{{ musician.name }}</strong>
     </h3>
 
-    <table class="table">
+    <table class="table table-striped table-responsive table-hover">
         <tbody>
             <tr>
                 <th>#</th>
@@ -20,12 +20,12 @@
             </tr>
             <tr>
                 <th>Description</th>
-                <td><div class="text-wrap text-smoothing-antialiased">{{ musician.description }}</div></td>
+                <td class="long-description">{{ musician.description }}</td>
             </tr>
             <tr>
                 <th>Image</th>
                 <td>
-                    <img class="img-fluid border shadow-lg w-250" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
+                    <img class="img-fluid border shadow-lg table-image" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
                 </td>
             </tr>
         </tbody>
