@@ -1,45 +1,40 @@
 <div class="container-fluid">
     <div class="row row-eq-spacing-lg">
-
         <div class="col-lg-3"></div>
         <div class="col-lg-6">
             <div class="content">
-
-                {{ form_start(form)}}
+                {{ form_start(form) }}
 
                 <!-- Name -->
-                <div class="col-sm form-group">
-                    {{ form_label(form.name)}}
-                    {{ form_widget(form.name)}}
-                    <small class="text-danger">{{ form_errors(form.name)}}</small>
+                <div class="form-group">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
                 </div>
 
                 <!-- Description -->
-                <div class="col-sm form-group">
-                    {{ form_label(form.description)}}
-                    {{ form_widget(form.description)}}
-                    <small class="text-danger">{{ form_errors(form.description)}}</small>
+                <div class="form-group">
+                    {{ form_label(form.description) }}
+                    {{ form_widget(form.description) }}
                 </div>
 
                 <!-- Image -->
-                <div class="col-sm form-group">
-                    {{ form_widget(form.image)}}
-                    {{ form_label(form.image)}}
-                    <small class="text-danger">{{ form_errors(form.image)}}</small>
+                {% do form.image.setRendered() %}
+                <label class="font-weight-bold required">Image</label>
+                <div class="custom-file pb-20">
+                    <input type="file" id="file-input" name="musician[image]" data-default-value="No image chosen">
+                    <label for="file-input" style="width: 100%; text-align: center;">Choose an image</label>
                 </div>
 
                 <!-- Genres -->
                 <div class="form-group">
                     {{ form_label(form.genre) }}
                     {{ form_widget(form.genre) }}
-                    {{ form_errors(form.genre) }}
                 </div>
 
-                <button class="btn w-full">{{ button_label|default('Save') }}</button>
+                <button class="btn btn-block border shadow btn-event">{{ button_label|default('Save') }}</button>
                 {{ form_end(form) }}
             </div>
         </div>
         <div class="col-lg-3"></div>
-
     </div>
 </div>

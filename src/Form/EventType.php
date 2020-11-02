@@ -8,7 +8,9 @@ use App\Repository\MusicianRepository;
 use App\Repository\VenueRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 
@@ -19,12 +21,26 @@ class EventType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('start_date')
-            ->add('end_date')
-            ->add('start_time')
-            ->add('end_time')
+            ->add('start_date', DateType::class, [
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'required' => true
+            ])
+            ->add('start_time', TimeType::class, [
+                'required' => true
+            ])
+            ->add('end_date', DateType::class, [
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'required' => false
+            ])
+            ->add('end_time', TimeType::class, [
+                'required' => false
+            ])
             ->add('price')
             ->add('discount')
+            ->add('discount_begin')
+            ->add('discount_end')
             ->add('image', FileType::class, [
                 'mapped' => false,
                 'required' => false,

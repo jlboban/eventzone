@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Json;
 
 /**
  * @Route("/genre")
@@ -107,12 +108,20 @@ class GenreController extends AbstractController
         return $this->redirectToRoute('genre_index');
     }
 
+    // TODO
+    public function showGenreMusicians(Genre $genre): Response
+    {
+        return $this->render('genre/musicians.html.twig', [
+            'musicians' => $genre->getMusicians(),
+        ]);
+    }
+
     /**
      * @Route("/search", name="genre_search", methods="GET")
      * @param Request $request
      * @return JsonResponse
      */
-    public function getGenresApi(Request $request)
+    public function getGenresAsync(Request $request): JsonResponse
     {
         $genres = $this->getDoctrine()
             ->getRepository(Genre::class)

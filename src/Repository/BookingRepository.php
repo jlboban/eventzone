@@ -21,52 +21,32 @@ class BookingRepository extends ServiceEntityRepository
         parent::__construct($registry, Booking::class);
     }
 
-    public function isUserBooked(User $user): bool
+    public function findByUser(User $user): ?Booking
     {
-        $qb = $this->createQueryBuilder('b')
+        return $qb = $this->createQueryBuilder('b')
             ->where('b.user = :user')
-            ->setParameter('user', $user);
-
-        return $query = $qb->getQuery()->getOneOrNullResult() ? true : false;
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
-    public function getUserBooking(User $user, Event $event)
+    public function isUserBooked(User $user): bool
     {
-        $qb = $this->createQueryBuilder('b')
+        return $qb = $this->createQueryBuilder('b')
+            ->where('b.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getOneOrNullResult() ? true : false;
+    }
+
+    public function isUserBookedToEvent(User $user, Event $event): bool
+    {
+        return $qb = $this->createQueryBuilder('b')
             ->where('b.user = :user')
             ->andWhere('b.event = :event')
             ->setParameter('user', $user)
-            ->setParameter('event', $event);
-
-        return $query = $qb->getQuery()->getOneOrNullResult();
-    }
-
-    // /**
-    //  * @return Booking[] Returns an array of Booking objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
+            ->setParameter('event', $event)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getOneOrNullResult() ? true : false;
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Booking
-    {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

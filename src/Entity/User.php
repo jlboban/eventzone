@@ -39,10 +39,6 @@ class User implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank
-     * @Assert\Regex(
-     *     pattern="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/",
-     *     message="Password must contain at least one letter, one number and have at least six characters."
-     * )
      */
     private string $password;
 

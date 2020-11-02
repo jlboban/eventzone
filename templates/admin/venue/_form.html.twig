@@ -23,10 +23,13 @@
 
                 </div>
 
+                <!-- Image -->
+                {% do form.image.setRendered() %}
+                <label class="font-weight-bold required">Image</label>
                 <div class="custom-file pb-20">
-                    {{ form_widget(form.image) }}
-                    {{ form_label(form.image) }}
-                    <small class="text-danger">{{ form_errors(form.image) }}</small>
+                    <input type="file" id="file-input" name="venue[image]" data-default-value="No image chosen">
+                    <label for="file-input" style="width: 100%; text-align: center;">Choose an image</label>
+                    <small class="text-danger"></small>
                 </div>
 
                 <div class="form-row row-eq-spacing-sm">
@@ -65,7 +68,7 @@
 
                 </div>
 
-                <button class="btn w-full">{{ button_label|default('Save') }}</button>
+                <button class="btn btn-block border shadow btn-event">{{ button_label|default('Save') }}</button>
                 {{ form_end(form) }}
 
             </div>

@@ -26,11 +26,10 @@ class EventController extends AbstractController
      * @param EventMusicianRepository $emRepository
      * @return Response
      */
-    public function index(EventRepository $eventRepository, EventMusicianRepository $emRepository): Response
+    public function index(EventRepository $eventRepository): Response
     {
         return $this->render('event/index.html.twig', [
-            'events' => $eventRepository->findAll(),
-            'musicians' => $emRepository->findAll(),
+            'events' => $eventRepository->findAll()
         ]);
     }
 

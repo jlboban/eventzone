@@ -53,7 +53,7 @@
                                 {{ event.price }}
                             </h2>
                             <hr>
-                            {% if currentDiscount is not null %}
+                            {% if currentDiscount is not same as(0.0) and currentDiscount is not null %}
                             <h4 class="font-weight-bold">
                                 <i class="fas fa-crow" style="color: orangered"></i> Early Bird Discount
                             </h4>
@@ -109,7 +109,7 @@
                                         </form>
                                     </div>
                                 {% endif %}
-                                {% if userBooking %}
+                                {% if isBookedToEvent %}
                                     <div class="d-flex justify-content-end">
                                         <form action="" method="post" class="pr-10">
                                             <button class="btn btn-lg font-weight-bold"><i class="fas fa-file-pdf"></i> Get PDF</button>

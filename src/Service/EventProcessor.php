@@ -12,16 +12,17 @@ use Exception;
  */
 class EventProcessor
 {
-    // Discount percentage will be scaled based on days until event,
-    // starting from and ending on values defined below.
-    private const DISCOUNT_FROM = 365;
-    private const DISCOUNT_TO = 30;
-
     private const MIN_DISCOUNT = 0;
 
+    /**
+     * @var Event
+     */
     private Event $event;
-    private float $discount;
 
+    /**
+     * EventProcessor constructor.
+     * @param Event $event
+     */
     public function __construct(Event $event)
     {
         $this->event = $event;
@@ -54,14 +55,21 @@ class EventProcessor
         }
 
         $rangeMapper = new RangeMapper();
-        return floor($this->discount = $rangeMapper->map($daysUntilEvent, $daysMin, $daysMax, $percentageMin, $percentageMax));
+        return floor($rangeMapper->map($daysUntilEvent, $daysMin, $daysMax, $percentageMin, $percentageMax));
     }
 
+    /**
+     * @return float|int
+     * @throws Exception
+     */
     public function getCurrentDiscount()
     {
-        $eventDiscount = $this->event->getDiscount();
-        $this->discount = $this->calculateDiscount(self::DISCOUNT_TO, self::DISCOUNT_FROM, self::MIN_DISCOUNT, $eventDiscount);
-        return $this->discount;
+        return $this->calculateDiscount(
+            $this->event->getDiscountEnd(),
+            $this->event->getDiscountBegin(),
+            self::MIN_DISCOUNT,
+            $this->event->getDiscount()
+        );
     }
 
     /**

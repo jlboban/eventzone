@@ -35,12 +35,12 @@ class Event
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank
      */
     private ?DateTimeInterface $start_date;
 
     /**
      * @ORM\Column(type="date", nullable=true)
-     * @Assert\NotBlank
      */
     private ?DateTimeInterface $end_date;
 
@@ -68,7 +68,8 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Image(maxSize="100k")
+     * @Assert\Image(maxSize="100k"
+     * )
      */
     private ?string $image;
 
@@ -88,6 +89,16 @@ class Event
      * @ORM\OneToMany(targetEntity=Booking::class, mappedBy="event", orphanRemoval=true)
      */
     private Collection $bookings;
+
+    /**
+     * @ORM\Column(type="integer", options={"default":"365"})
+     */
+    private ?int $discount_begin;
+
+    /**
+     * @ORM\Column(type="integer", options={"default":"30"})
+     */
+    private ?int $discount_end;
 
     public function __construct()
     {
@@ -288,6 +299,30 @@ class Event
                 $booking->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDiscountBegin(): ?int
+    {
+        return $this->discount_begin;
+    }
+
+    public function setDiscountBegin(int $discount_begin): self
+    {
+        $this->discount_begin = $discount_begin;
+
+        return $this;
+    }
+
+    public function getDiscountEnd(): ?int
+    {
+        return $this->discount_end;
+    }
+
+    public function setDiscountEnd(int $discount_end): self
+    {
+        $this->discount_end = $discount_end;
 
         return $this;
     }

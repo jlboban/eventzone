@@ -76,3 +76,22 @@
 #search input::-webkit-input-placeholder {
     color: transparent;
 }
+
+.btn {
+    border: none;
+}
+
+.btn-event {
+    background: linear-gradient(90deg, #ff892c 0%, #ff4500 100%) !important;
+    font-weight: bolder;
+    color: #242424 !important;
+    border: none !important;
+    -webkit-transition: all 0.5s !important;
+    -moz-transition: all 0.5s !important;
+    -transition: all 0.5s !important;
+}
+
+.btn-event:hover {
+    color: whitesmoke !important;
+    background: linear-gradient(90deg, #ff4500 100%, #ff892c 0%) !important;
+}

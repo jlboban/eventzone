@@ -1,0 +1,38 @@
+{% extends 'home/base.html.twig' %}
+
+{% block title %}{{ event.name }}{% endblock %}
+
+{% block body %}
+    <h3>Event | <strong>{{ event.name }}</strong></h3>
+
+    <!-- Content wrapper start -->
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="card border">
+                <div class="row">
+
+                    {% for musician in musicians %}
+                        <div  class="col-sm-5">
+                            <div class="mw-full">
+                                <div class="card p-0 border">
+                                    <img src="{{ asset('img/musicians/' ~ musician.image) }}" class="img-fluid rounded-top" alt="Musician image">
+                                    <div class="content">
+                                        <h3 class="content-title font-weight-bold">
+                                            {{ musician.name }}
+                                        </h3>
+                                        {% for genre in musician.genre %}
+                                            {{ genre.name }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content wrapper end -->
+
+{% endblock %}

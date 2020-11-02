@@ -60,8 +60,9 @@ class BookingController extends AbstractController
     public function show(Event $event, BookingRepository $bookingRepository): Response
     {
         $user = $this->getUser();
+        $userBooking = $bookingRepository->findByUser($user);
         $isBooked = $bookingRepository->isUserBooked($user);
-        $userBooking = $bookingRepository->getUserBooking($user, $event);
+        $isBookedToEvent = $bookingRepository->isUserBookedToEvent($user, $event);
 
         $eventProcessor = new EventProcessor($event);
         $currentDiscount = $eventProcessor->getCurrentDiscount();
@@ -69,14 +70,15 @@ class BookingController extends AbstractController
         $isCancellable = $eventProcessor->getDaysUntilEvent() <= self::CANCEL_BOOKING_DAYS ? false : true;
 
         return $this->render('booking/show.html.twig', [
+            'user' => $user,
             'event' => $event,
             'musicians' => $event->getMusicians(),
             'venues' => $event->getVenues(),
-            'user' => $user,
-            'userBooking' => $userBooking,
             'currentDiscount' => $currentDiscount,
             'finalPrice' => $finalPrice,
+            'userBooking' => $userBooking,
             'isBooked' => $isBooked,
+            'isBookedToEvent' => $isBookedToEvent,
             'isCancellable' => $isCancellable,
         ]);
     }

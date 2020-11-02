@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Form\UserSettingsType;
 use App\Repository\UserRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,6 +20,7 @@ class UserController extends AbstractController
      * @Route("/", name="user_index", methods={"GET"})
      * @param UserRepository $userRepository
      * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function index(UserRepository $userRepository): Response
     {
@@ -27,13 +30,35 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/settings", name="user_settings", methods={"GET"})
+     * @Route("/settings", name="user_settings", methods={"GET", "POST"})
+     * @param Request $request
      * @return Response
      */
-    public function settings(): Response
+    public function settings(Request $request): Response
     {
+        $user = $this->getUser();
+        $form = $this->createForm(UserSettingsType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $user->setAddress = $form->get('address')->getData();
+            $user->setCity = $form->get('city')->getData();
+            $user->setPostcode = $form->get('postcode')->getData();
+            $user->setCountry = $form->get('country')->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Successfully updated address.');
+
+            return $this->redirectToRoute('user_settings');
+        }
+
         return $this->render('user/settings.html.twig', [
             'user' => $this->getUser(),
+            'form' => $form->createView(),
         ]);
     }
 

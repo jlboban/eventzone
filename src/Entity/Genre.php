@@ -17,17 +17,17 @@ class Genre
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @ORM\ManyToMany(targetEntity=Musician::class, mappedBy="genre")
      */
-    private $musicians;
+    private Collection $musicians;
 
     public function __construct()
     {
