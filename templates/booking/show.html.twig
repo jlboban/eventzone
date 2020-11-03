@@ -111,7 +111,7 @@
                                 {% endif %}
                                 {% if isBookedToEvent %}
                                     <div class="d-flex justify-content-end">
-                                        <form action="" method="post" class="pr-10">
+                                        <form action="{{ path('booking_show_pdf', {'id': event.id}) }}" method="post" class="pr-10">
                                             <button class="btn btn-lg font-weight-bold"><i class="fas fa-file-pdf"></i> Get PDF</button>
                                         </form>
                                         <form action="{{ path('booking_delete', {'id': userBooking.id}) }}" method="post">

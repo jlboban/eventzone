@@ -16,9 +16,21 @@
 
     <div class="navbar-content ml-auto">
 
-        <form class="form-inline ml-auto pr-20" action="..." method="...">
+        <form class="form-inline ml-auto pr-20" action="{# path('genre_musicians') #}" method="get">
             <div class="input-group">
-                <input type="text" class="form-control" tabindex="1" placeholder="Search by genre" required="required">
+                <input type="text" class="form-control" id="genre-search" tabindex="1" data-path="{{ path('genre_search') }}" placeholder="Search by genre" required="required">
+
+                <div class="input-group-append">
+                    <div class="dropdown with-arrow" id="genre-dropdown">
+                        <button class="btn" data-toggle="dropdown" type="button" id="genre-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-angle-down ml-5" aria-hidden="true"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-center" id="suggestions">
+
+                        </div>
+                    </div>
+                </div>
+
                 <div class="input-group-append">
                     <button class="btn" type="submit">
                         <i class="fa fa-search" aria-hidden="true"></i>
@@ -26,6 +38,7 @@
                     </button>
                 </div>
             </div>
+
         </form>
 
         {% if not app.user %}

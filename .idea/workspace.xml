@@ -20,10 +20,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba4f4770-ee47-4628-b417-56a80199ac49" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f3bdda4f-96fc-4333-9d65-7b85a6d978f3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f3bdda4f-96fc-4333-9d65-7b85a6d978f3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f3bdda4f-96fc-4333-9d65-7b85a6d978f3/storage_v2/_src_/schema/eventzone.RrnwAQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f3bdda4f-96fc-4333-9d65-7b85a6d978f3/storage_v2/_src_/schema/eventzone.RrnwAQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f3bdda4f-96fc-4333-9d65-7b85a6d978f3/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f3bdda4f-96fc-4333-9d65-7b85a6d978f3/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/eventzone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/eventzone.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201022070352.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201022070352.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201022104609.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201022104609.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201023081939.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201023081939.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201028105633.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201028105633.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201028134510.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201028134510.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201028143337.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201028143337.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201029114538.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201029114538.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201102141332.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201102141332.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BookingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GenreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GenreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/VenueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VenueController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Booking.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Booking.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Genre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Genre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Venue.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Venue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/EventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EventType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/GenreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/GenreType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/UserSettingsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserSettingsType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/VenueType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/VenueType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/BookingRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BookingRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/EventRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/EventRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/GenreRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/GenreRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/MusicianRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MusicianRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/VenueRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/VenueRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/EventProcessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/EventProcessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/RangeMapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/RangeMapper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/genre/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/genre/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/genre/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/genre/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/genre/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/genre/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/genre/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/genre/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/genre/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/genre/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/venue/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/venue/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/venue/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/venue/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/venue/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/venue/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/booking/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booking/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/booking/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booking/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/genre/musicians.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/genre/musicians.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/_nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/settings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/settings.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/venue/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/venue/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/venue/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/venue/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +101,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -157,6 +221,10 @@
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
     </include_path>
   </component>
   <component name="ProjectId" id="1j8hQUZYnfNSuvATnSEqzlhuVLI" />
@@ -179,16 +247,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/admin" />
+      <recent name="$PROJECT_DIR$/templates/home" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/templates/event" />
       <recent name="$PROJECT_DIR$/templates/musician" />
       <recent name="$PROJECT_DIR$/templates/security" />
       <recent name="$PROJECT_DIR$/public/img/events" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/admin" />
-      <recent name="$PROJECT_DIR$/templates/home" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -214,7 +282,7 @@
       <workItem from="1603955189871" duration="22880000" />
       <workItem from="1604041201721" duration="23911000" />
       <workItem from="1604218843061" duration="10202000" />
-      <workItem from="1604387017860" duration="2854000" />
+      <workItem from="1604387017860" duration="24587000" />
     </task>
     <servers />
   </component>
@@ -303,66 +371,66 @@
     </state>
     <state x="690" y="231" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1603958489958" />
     <state x="2610" y="240" width="530" height="592" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604046639604" />
-    <state width="1868" height="308" key="GridCell.Tab.0.bottom" timestamp="1604389064791">
+    <state width="1868" height="171" key="GridCell.Tab.0.bottom" timestamp="1604415164412">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="253" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604325605539" />
-    <state width="1868" height="308" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604389064791" />
-    <state width="1868" height="308" key="GridCell.Tab.0.center" timestamp="1604389064791">
+    <state width="1868" height="171" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164412" />
+    <state width="1868" height="171" key="GridCell.Tab.0.center" timestamp="1604415164412">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="253" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604325605539" />
-    <state width="1868" height="308" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604389064791" />
-    <state width="1868" height="308" key="GridCell.Tab.0.left" timestamp="1604389064790">
+    <state width="1868" height="171" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164412" />
+    <state width="1868" height="171" key="GridCell.Tab.0.left" timestamp="1604415164411">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="253" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604325605539" />
-    <state width="1868" height="308" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604389064790" />
-    <state width="1868" height="308" key="GridCell.Tab.0.right" timestamp="1604389064791">
+    <state width="1868" height="171" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164411" />
+    <state width="1868" height="171" key="GridCell.Tab.0.right" timestamp="1604415164412">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="253" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604325605539" />
-    <state width="1868" height="308" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604389064791" />
-    <state width="1868" height="308" key="GridCell.Tab.1.bottom" timestamp="1604389064791">
+    <state width="1868" height="171" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164412" />
+    <state width="1868" height="171" key="GridCell.Tab.1.bottom" timestamp="1604415164412">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="253" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604325605540" />
-    <state width="1868" height="308" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604389064791" />
-    <state width="1868" height="308" key="GridCell.Tab.1.center" timestamp="1604389064791">
+    <state width="1868" height="171" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164412" />
+    <state width="1868" height="171" key="GridCell.Tab.1.center" timestamp="1604415164412">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="253" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604325605539" />
-    <state width="1868" height="308" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604389064791" />
-    <state width="1868" height="308" key="GridCell.Tab.1.left" timestamp="1604389064791">
+    <state width="1868" height="171" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164412" />
+    <state width="1868" height="171" key="GridCell.Tab.1.left" timestamp="1604415164412">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="253" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604325605539" />
-    <state width="1868" height="308" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604389064791" />
-    <state width="1868" height="308" key="GridCell.Tab.1.right" timestamp="1604389064791">
+    <state width="1868" height="171" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164412" />
+    <state width="1868" height="171" key="GridCell.Tab.1.right" timestamp="1604415164412">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="253" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604325605539" />
-    <state width="1868" height="308" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604389064791" />
-    <state width="1868" height="308" key="GridCell.Tab.2.bottom" timestamp="1604389064791">
+    <state width="1868" height="171" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164412" />
+    <state width="1868" height="171" key="GridCell.Tab.2.bottom" timestamp="1604415164413">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="253" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604325605540" />
-    <state width="1868" height="308" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604389064791" />
-    <state width="1868" height="308" key="GridCell.Tab.2.center" timestamp="1604389064791">
+    <state width="1868" height="171" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164413" />
+    <state width="1868" height="171" key="GridCell.Tab.2.center" timestamp="1604415164413">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="253" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604325605540" />
-    <state width="1868" height="308" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604389064791" />
-    <state width="1868" height="308" key="GridCell.Tab.2.left" timestamp="1604389064791">
+    <state width="1868" height="171" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164413" />
+    <state width="1868" height="171" key="GridCell.Tab.2.left" timestamp="1604415164412">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="253" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604325605540" />
-    <state width="1868" height="308" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604389064791" />
-    <state width="1868" height="308" key="GridCell.Tab.2.right" timestamp="1604389064791">
+    <state width="1868" height="171" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164412" />
+    <state width="1868" height="171" key="GridCell.Tab.2.right" timestamp="1604415164413">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="253" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604325605540" />
-    <state width="1868" height="308" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604389064791" />
+    <state width="1868" height="171" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164413" />
     <state x="689" y="208" width="549" height="639" key="NewPhpClassDialog" timestamp="1604320687378">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -432,9 +500,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604305018286" />
-    <state x="680" y="420" width="550" height="192" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1604318913616">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2600" y="436" width="550" height="192" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1604391404739">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="680" y="420" width="550" height="192" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604318913616" />
+    <state x="2600" y="436" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604391404739" />
   </component>
 </project>
