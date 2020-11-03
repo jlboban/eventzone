@@ -274,4 +274,14 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function hasBillingAddress(): bool
+    {
+        $address = $this->getAddress();
+        $city = $this->getCity();
+        $postcode = $this->getPostcode();
+        $country = $this->getCountry();
+
+        return is_null($address) || is_null($city) || is_null($postcode) || is_null($country) ? false : true;
+    }
 }

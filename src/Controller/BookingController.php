@@ -60,6 +60,7 @@ class BookingController extends AbstractController
     public function show(Event $event, BookingRepository $bookingRepository): Response
     {
         $user = $this->getUser();
+        $hasBillingAddress = $user->hasBillingAddress();
         $userBooking = $bookingRepository->findByUser($user);
         $isBooked = $bookingRepository->isUserBooked($user);
         $isBookedToEvent = $bookingRepository->isUserBookedToEvent($user, $event);
@@ -72,14 +73,13 @@ class BookingController extends AbstractController
         return $this->render('booking/show.html.twig', [
             'user' => $user,
             'event' => $event,
-            'musicians' => $event->getMusicians(),
-            'venues' => $event->getVenues(),
             'currentDiscount' => $currentDiscount,
             'finalPrice' => $finalPrice,
             'userBooking' => $userBooking,
             'isBooked' => $isBooked,
             'isBookedToEvent' => $isBookedToEvent,
             'isCancellable' => $isCancellable,
+            'hasBillingAddress' => $hasBillingAddress,
         ]);
     }
 
