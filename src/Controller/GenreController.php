@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Constraints\Json;
 
 /**
@@ -134,14 +135,16 @@ class GenreController extends AbstractController
      * @Route("/search", name="genre_search", methods={"GET","POST"})
      * @param Request $request
      * @param GenreRepository $genreRepository
+     * @param SerializerInterface $serializer
      * @return JsonResponse
      */
-    public function getGenresJson(Request $request, GenreRepository $genreRepository): JsonResponse
+    public function getGenresJson(Request $request, GenreRepository $genreRepository, SerializerInterface $serializer): JsonResponse
     {
         $genres = $genreRepository->findAllMatching($request->get('genre'));
+        $json = $serializer->serialize($genres, 'json', ['groups' => ['genre_search']]);
 
         return $this->json([
-            'genres' => $genres ?? null,
+            'genres' => $json ?? null,
         ], 200, []);
     }
 }

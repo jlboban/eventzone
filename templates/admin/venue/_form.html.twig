@@ -29,7 +29,6 @@
                 <div class="custom-file pb-20">
                     <input type="file" id="file-input" name="venue[image]" data-default-value="No image chosen">
                     <label for="file-input" style="width: 100%; text-align: center;">Choose an image</label>
-                    <small class="text-danger"></small>
                 </div>
 
                 <div class="form-row row-eq-spacing-sm">
@@ -38,14 +37,12 @@
                     <div class="col-sm form-group">
                         {{ form_label(form.address) }}
                         {{ form_widget(form.address) }}
-                        <small class="text-danger">{{ form_errors(form.address) }}</small>
                     </div>
 
                     <!-- City -->
                     <div class="col-sm form-group">
                         {{ form_label(form.city) }}
                         {{ form_widget(form.city) }}
-                        <small class="text-danger">{{ form_errors(form.city) }}</small>
                     </div>
 
                 </div>
@@ -56,14 +53,12 @@
                     <div class="col-sm form-group">
                         {{ form_label(form.postcode) }}
                         {{ form_widget(form.postcode) }}
-                        <small class="text-danger">{{ form_errors(form.postcode) }}</small>
                     </div>
 
                     <!-- Country -->
                     <div class="col-sm form-group">
                         {{ form_label(form.country) }}
                         {{ form_widget(form.country) }}
-                        <small class="text-danger">{{ form_errors(form.country) }}</small>
                     </div>
 
                 </div>

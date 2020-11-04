@@ -23,7 +23,6 @@ class EventController extends AbstractController
     /**
      * @Route("/", name="event_index", methods={"GET"})
      * @param EventRepository $eventRepository
-     * @param EventMusicianRepository $emRepository
      * @return Response
      */
     public function index(EventRepository $eventRepository): Response
