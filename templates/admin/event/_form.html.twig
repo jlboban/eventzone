@@ -58,22 +58,19 @@
 
                     <!-- Discount -->
                     <div class="col-sm form-group">
-                        {{ form_label(form.discount) }}
-                        {{ form_widget(form.discount) }}
+                        {{ form_row(form.discount) }}
                     </div>
                 </div>
 
                 <div class="form-row row-eq-spacing-sm">
-                    <!-- Price -->
+                    <!-- Discount Begin -->
                     <div class="col-sm form-group">
-                        {{ form_label(form.discount_begin) }}
-                        {{ form_widget(form.discount_begin) }}
+                        {{ form_row(form.discount_begin) }}
                     </div>
 
-                    <!-- Discount -->
+                    <!-- Discount End -->
                     <div class="col-sm form-group">
-                        {{ form_label(form.discount_end) }}
-                        {{ form_widget(form.discount_end) }}
+                        {{ form_row(form.discount_end) }}
                     </div>
                 </div>
 
@@ -92,6 +89,9 @@
                 </div>
 
                 <!-- Image -->
+                {% if form_errors(form.image) %}
+                    {{ form_errors(form.image) }}
+                {% endif %}
                 {% do form.image.setRendered() %}
                 <label class="font-weight-bold required">Image</label>
                 <div class="custom-file pb-20">

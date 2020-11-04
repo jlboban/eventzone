@@ -63,12 +63,18 @@ class Event
 
     /**
      * @ORM\Column(type="decimal", precision=4, scale=2, nullable=true)
+     * @Assert\Range(
+     *     min="0",
+     *     max="99.99",
+     *     notInRangeMessage="Please input a valid discount % in the xx.xx format."
+     * )
      */
     private ?string $discount;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Image(maxSize="100k", groups = {"create"})
+     * @Assert\Image(maxSize="100k")
+     * @Assert\NotBlank(groups={"create"})
      */
     private ?string $image;
 
@@ -96,6 +102,7 @@ class Event
      *     max="999",
      *     notInRangeMessage="Invalid number of days."
      * )
+     * @Assert\Expression("value > this.getDiscountEnd()", message="Number of days must be greater than discount end days.")
      */
     private ?int $discount_begin;
 

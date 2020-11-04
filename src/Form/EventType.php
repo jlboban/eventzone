@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Event;
 use App\Entity\Musician;
 use App\Entity\Venue;
 use App\Repository\MusicianRepository;
@@ -10,9 +11,11 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
-
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EventType extends AbstractType
 {
@@ -38,12 +41,21 @@ class EventType extends AbstractType
                 'required' => false
             ])
             ->add('price')
-            ->add('discount')
-            ->add('discount_begin')
-            ->add('discount_end')
+            ->add('discount', NumberType::class, [
+                'label' => 'Discount %',
+                'help' => 'Initial discount percentage that will be scaled to 0.'
+            ])
+            ->add('discount_begin', IntegerType::class, [
+                'help' => 'Discount scaling begins on X days before the event. Default: 365 days.',
+                'required' => false
+            ])
+            ->add('discount_end', IntegerType::class, [
+                'help' => 'Discount scaling ends on X days before the event. Default: 30 days.',
+                'required' => false
+            ])
             ->add('image', FileType::class, [
                 'mapped' => false,
-                'required' => false,
+                'required' => true,
             ])
             ->add('musicians', EntityType::class, [
                 'class' => Musician::class,
@@ -68,6 +80,14 @@ class EventType extends AbstractType
                 'expanded' => false,
             ])
         ;
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => Event::class,
+            'validation_groups' => ['create'],
+        ]);
     }
 
 }

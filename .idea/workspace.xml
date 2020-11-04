@@ -21,14 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ba4f4770-ee47-4628-b417-56a80199ac49" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/genre-search.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/genre-search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GenreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GenreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MusicianController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MusicianController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Genre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Genre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/EventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EventType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/event/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/venue/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/_nav.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,7 +222,7 @@
       <workItem from="1604041201721" duration="23911000" />
       <workItem from="1604218843061" duration="10202000" />
       <workItem from="1604387017860" duration="24587000" />
-      <workItem from="1604473478991" duration="18645000" />
+      <workItem from="1604473478991" duration="23489000" />
     </task>
     <servers />
   </component>
@@ -292,18 +289,19 @@
     </state>
     <state x="648" y="315" width="705" height="402" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604492229132" />
     <state x="2568" y="327" width="614" height="417" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603719741651" />
-    <state x="2641" y="177" width="468" height="691" key="#com.intellij.ide.util.MemberChooser" timestamp="1604328409587">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="721" y="170" width="468" height="691" key="#com.intellij.ide.util.MemberChooser" timestamp="1604497043926">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="721" y="170" width="468" height="691" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1603974852997" />
+    <state x="721" y="170" width="468" height="691" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604497043926" />
     <state x="2641" y="177" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604328409587" />
     <state x="2540" y="189" width="661" height="688" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603798638115">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2540" y="189" width="661" height="688" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603798638115" />
-    <state x="2547" y="240" width="655" height="592" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604068095489">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="627" y="231" width="655" height="592" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604499953035">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="627" y="231" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604499953035" />
     <state x="2547" y="240" width="655" height="592" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604068095489" />
     <state x="162" y="127" width="1658" height="853" key="DiffContextDialog" timestamp="1604242557592">
       <screen x="62" y="27" width="1858" height="1053" />
@@ -374,10 +372,10 @@
     </state>
     <state width="1868" height="253" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604487841459" />
     <state width="1868" height="171" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604415164413" />
-    <state x="689" y="208" width="549" height="639" key="NewPhpClassDialog" timestamp="1604320687378">
+    <state x="689" y="208" width="522" height="639" key="NewPhpClassDialog" timestamp="1604496813834">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="689" y="208" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604320687378" />
+    <state x="689" y="208" width="522" height="639" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604496813834" />
     <state x="2609" y="216" width="549" height="639" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604056897835" />
     <state x="2654" y="447" width="442" height="171" key="NewPhpFileDialog" timestamp="1603980552701">
       <screen x="1920" y="0" width="1920" height="1080" />
