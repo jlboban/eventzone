@@ -4,23 +4,33 @@ $(document).ready(function(){
     let genreDropdown = document.querySelector("#genre-dropdown");
     let genreDropdownToggle = document.querySelector("#genre-dropdown-toggle");
     let url = document.querySelector('#genre-search').dataset.path;
-    let genreArray = [];
+    const minLetters = 2;
 
     $("#genre-search").keyup(function(){
-        if ($(this).val().length > 1) {
+        if ($(this).val().length > minLetters) {
             $.ajax({
                 type: "POST",
                 url: url,
                 data: "genre="+$(this).val(),
                 success: function(data){
-                    console.log(data.genres);
+                    let suggestions = document.querySelector("#suggestions");
+                    let hasChildren = suggestions.hasChildNodes();
+
+                    if (hasChildren){
+                        while (suggestions.firstChild) {
+                            suggestions.removeChild(suggestions.firstChild);
+                        }
+                    }
+
                     genreDropdown.classList.add('show');
                     genreDropdownToggle.classList.add('active');
 
-                    data.genres.forEach(element => genreArray.push(element.name, "<br>"));
-
-                    $("#suggestions").html(genreArray);
-                    genreArray = [];
+                    data.genres.map((genre, index) => {
+                        let newDiv = document.createElement("div");
+                        newDiv.innerText = genre.name
+                        newDiv.tabIndex = index.toString();
+                        suggestions.append(newDiv);
+                    });
                 },
             });
         }

@@ -16,9 +16,9 @@
 
     <div class="navbar-content ml-auto">
 
-        <form class="form-inline ml-auto pr-20" action="{# path('genre_musicians') #}" method="get">
+        <form class="form-inline ml-auto pr-20" action="{{ path('genre_musicians') }}" method="get">
             <div class="input-group">
-                <input type="text" class="form-control" id="genre-search" tabindex="1" data-path="{{ path('genre_search') }}" placeholder="Search by genre" required="required">
+                <input type="text" name="genre" class="form-control" id="genre-search" tabindex="1" data-path="{{ path('genre_search') }}" placeholder="Search by genre" required="required">
 
                 <div class="input-group-append">
                     <div class="dropdown with-arrow" id="genre-dropdown">

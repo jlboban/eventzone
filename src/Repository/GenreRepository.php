@@ -19,6 +19,16 @@ class GenreRepository extends ServiceEntityRepository
         parent::__construct($registry, Genre::class);
     }
 
+    public function findOneMatching(string $query, int $limit = 1)
+    {
+        return $this->createQueryBuilder('g')
+            ->where('g.name LIKE :query')
+            ->setParameter('query', '%'.$query.'%')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     public function findAllMatching(string $query, int $limit = 5)
     {
         return $this->createQueryBuilder('g')

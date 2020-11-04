@@ -117,11 +117,14 @@ class GenreController extends AbstractController
 
     /**
      * @Route("musicians", name="genre_musicians", methods={"GET"})
-     * @param Genre $genre
+     * @param Request $request
+     * @param GenreRepository $genreRepository
      * @return Response
      */
-    public function showGenreMusicians(Genre $genre): Response
+    public function showGenreMusicians(Request $request, GenreRepository $genreRepository): Response
     {
+        $genre = $genreRepository->findOneMatching($request->get('genre'));
+
         return $this->render('genre/musicians.html.twig', [
             'genre' => $genre,
         ]);
@@ -133,7 +136,7 @@ class GenreController extends AbstractController
      * @param GenreRepository $genreRepository
      * @return JsonResponse
      */
-    public function getGenresAsync(Request $request, GenreRepository $genreRepository): JsonResponse
+    public function getGenresJson(Request $request, GenreRepository $genreRepository): JsonResponse
     {
         $genres = $genreRepository->findAllMatching($request->get('genre'));
 
