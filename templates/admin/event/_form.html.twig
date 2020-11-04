@@ -9,95 +9,100 @@
                 <div class="form-group">
                     {{ form_label(form.name) }}
                     {{ form_widget(form.name) }}
-                    <small class="text-danger">{{ form_errors(form.name) }}</small>
                 </div>
 
                 <!-- Description -->
                 <div class="form-group">
                     {{ form_label(form.description) }}
                     {{ form_widget(form.description) }}
-                    <small class="text-danger">{{ form_errors(form.description) }}</small>
                 </div>
 
-                <!-- Start Date -->
-                <div class="form-group">
-                    {{ form_label(form.start_date) }}
-                    {{ form_widget(form.start_date) }}
+                <hr>
+
+                <div class="form-row row-eq-spacing">
+                    <!-- Start Date -->
+                    <div class="col-sm form-group w-half pr-10">
+                        {{ form_label(form.start_date) }}
+                        {{ form_widget(form.start_date) }}
+                    </div>
+
+                    <!-- Start Time -->
+                    <div class="col-sm form-group w-half pl-10">
+                        {{ form_label(form.start_time) }}
+                        {{ form_widget(form.start_time) }}
+                    </div>
                 </div>
 
-                <!-- Start Time -->
-                <div class="form-group">
-                    {{ form_label(form.start_time) }}
-                    {{ form_widget(form.start_time) }}
+                <div class="form-row row-eq-spacing">
+                    <!-- End Date -->
+                    <div class="col-sm form-group w-half pr-10">
+                        {{ form_label(form.end_date) }}
+                        {{ form_widget(form.end_date) }}
+                    </div>
+
+                    <!-- End Time -->
+                    <div class="col-sm form-group w-half pl-10">
+                        {{ form_label(form.end_time) }}
+                        {{ form_widget(form.end_time) }}
+                    </div>
                 </div>
 
-                <!-- End Date -->
-                <div class="form-group">
-                    {{ form_label(form.end_date) }}
-                    {{ form_widget(form.end_date) }}
-                    {{ form_errors(form.end_date) }}
+                <hr>
+
+                <div class="form-row row-eq-spacing-sm">
+                    <!-- Price -->
+                    <div class="col-sm form-group">
+                        {{ form_label(form.price) }}
+                        {{ form_widget(form.price) }}
+                    </div>
+
+                    <!-- Discount -->
+                    <div class="col-sm form-group">
+                        {{ form_label(form.discount) }}
+                        {{ form_widget(form.discount) }}
+                    </div>
                 </div>
 
-                <!-- End Time -->
-                <div class="form-group">
-                    {{ form_label(form.end_time) }}
-                    {{ form_widget(form.end_time) }}
-                    {{ form_errors(form.end_time) }}
+                <div class="form-row row-eq-spacing-sm">
+                    <!-- Price -->
+                    <div class="col-sm form-group">
+                        {{ form_label(form.discount_begin) }}
+                        {{ form_widget(form.discount_begin) }}
+                    </div>
+
+                    <!-- Discount -->
+                    <div class="col-sm form-group">
+                        {{ form_label(form.discount_end) }}
+                        {{ form_widget(form.discount_end) }}
+                    </div>
                 </div>
 
-                <!-- Image
-                <label class="font-weight-bold required">Image</label>
-                <div class="custom-file pb-20">
-                    <input type="file" id="file-input" name="image" data-default-value="No image chosen">
-                    <label for="file-input" style="width: 100%; text-align: center;">Choose an image</label>
-
-                    <small class="text-danger">{# form_errors(form.image) #}</small>
-                </div>
-                 -->
+                <hr>
 
                 <!-- Musicians -->
                 <div class="form-group">
                     {{ form_label(form.musicians) }}
                     {{ form_widget(form.musicians) }}
-                    {{ form_errors(form.musicians) }}
                 </div>
 
                 <!-- Venues -->
                 <div class="form-group">
                     {{ form_label(form.venues) }}
                     {{ form_widget(form.venues) }}
-                    {{ form_errors(form.venues) }}
-                </div>
-
-                <div class="form-row row-eq-spacing-sm">
-                    <!-- Price -->
-                    <div class="col-sm form-group">
-                        {{ form_label(form.price)}}
-                        {{ form_widget(form.price)}}
-                        <small class="text-danger">{{ form_errors(form.price)}}</small>
-                    </div>
-
-                    <!-- Discount -->
-                    <div class="col-sm form-group">
-                        {{ form_label(form.discount)}}
-                        {{ form_widget(form.discount)}}
-                        <small class="text-danger">{{ form_errors(form.discount)}}</small>
-                    </div>
                 </div>
 
                 <!-- Image -->
+                {% do form.image.setRendered() %}
+                <label class="font-weight-bold required">Image</label>
                 <div class="custom-file pb-20">
-                    {{ form_widget(form.image) }}
-                    {{ form_label(form.image) }}
-                    <small class="text-danger">{{ form_errors(form.image) }}</small>
+                    <input type="file" id="file-input" name="event[image]" data-default-value="No image chosen">
+                    <label for="file-input" style="width: 100%; text-align: center;">Choose an image</label>
                 </div>
 
-                <button class="btn w-full">{{ button_label|default('Save') }}</button>
-
+                <button class="btn btn-block border shadow btn-event">{{ button_label|default('Save') }}</button>
                 {{ form_end(form) }}
             </div>
         </div>
         <div class="col-lg-3"></div>
-
     </div>
 </div>

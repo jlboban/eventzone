@@ -5,12 +5,42 @@
     <!-- Content wrapper start -->
     <div class="content-wrapper">
 
-        <div class="centered" id="logo-container">
+        <div class="centered pt-20" id="logo-container">
             <img src="{{ asset('img/eventzone_logo_gradient.png') }}" class="img-fluid" id="logo" alt="Logo">
         </div>
 
         <div class="container-fluid">
             <div id="particles-js"></div>
+        </div>
+        
+        <div class="row w-full">
+            <div class="col-2"></div>
+            <div class="col-8 p-20 w-full">
+            <form class="form-inline" action="{{ path('genre_musicians') }}" method="get">
+                <div class="input-group">
+                    <input type="text" name="genre" class="form-control" id="genre-search" autocomplete="off" data-path="{{ path('genre_search') }}" placeholder="Search by genre" required="required">
+
+                    <div class="input-group-append">
+                        <div class="dropdown with-arrow" id="genre-dropdown">
+                            <button class="btn" data-toggle="dropdown" type="button" id="genre-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-angle-down ml-5" aria-hidden="true"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-center" id="suggestions">
+                                {# Dynamic divs #}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group-append">
+                        <button class="btn" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <span class="sr-only">Search by genre</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            </div>
+            <div class="col-2"></div>
         </div>
 
     </div>

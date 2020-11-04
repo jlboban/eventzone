@@ -39,10 +39,6 @@ class User implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank
-     * @Assert\Regex(
-     *     pattern="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/",
-     *     message="Password must contain at least one letter, one number and have at least six characters."
-     * )
      */
     private string $password;
 
@@ -277,5 +273,15 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+
+    public function hasBillingAddress(): bool
+    {
+        $address = $this->getAddress();
+        $city = $this->getCity();
+        $postcode = $this->getPostcode();
+        $country = $this->getCountry();
+
+        return is_null($address) || is_null($city) || is_null($postcode) || is_null($country) ? false : true;
     }
 }

@@ -23,7 +23,7 @@
                             </h2>
                         </div>
                     </div>
-                    {% if user.address is not defined %}
+                    {% if hasBillingAddress is same as(true) %}
                     <div class="card p-0 border">
                         <div class="content">
                             <h4>Billing Address</h4>
@@ -53,7 +53,7 @@
                                 {{ event.price }}
                             </h2>
                             <hr>
-                            {% if currentDiscount is not null %}
+                            {% if currentDiscount is not same as(0) and currentDiscount is not null %}
                             <h4 class="font-weight-bold">
                                 <i class="fas fa-crow" style="color: orangered"></i> Early Bird Discount
                             </h4>
@@ -100,18 +100,18 @@
                                 </p>
                                     <hr>
                                 {% endfor %}
-                                {% if not isBooked %}
+                                {% if not isBooked and hasBillingAddress is same as(true) %}
                                     <div class="text-right">
                                         <form action="{{ path('booking_new', {'id': event.id}) }}" method="post">
-                                            <button class="btn btn-lg font-weight-bold ">
-                                                <i class="fas fa-check"></i>Confirm
+                                            <button class="btn btn-lg btn-event font-weight-bold ">
+                                                <i class="fas fa-check"></i> Confirm
                                             </button>
                                         </form>
                                     </div>
                                 {% endif %}
-                                {% if userBooking %}
+                                {% if isBookedToEvent %}
                                     <div class="d-flex justify-content-end">
-                                        <form action="" method="post" class="pr-10">
+                                        <form action="{{ path('booking_show_pdf', {'id': event.id}) }}" method="post" class="pr-10">
                                             <button class="btn btn-lg font-weight-bold"><i class="fas fa-file-pdf"></i> Get PDF</button>
                                         </form>
                                         <form action="{{ path('booking_delete', {'id': userBooking.id}) }}" method="post">

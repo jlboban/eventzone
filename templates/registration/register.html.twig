@@ -23,14 +23,12 @@
                     <div class="col-sm form-group">
                         {{ form_label(registrationForm.firstName) }}
                         {{ form_widget(registrationForm.firstName) }}
-                        <small class="text-danger">{{ form_errors(registrationForm.firstName) }}</small>
                     </div>
 
                     <!-- Last name -->
                     <div class="col-sm form-group">
                         {{ form_label(registrationForm.lastName) }}
                         {{ form_widget(registrationForm.lastName) }}
-                        <small class="text-danger">{{ form_errors(registrationForm.lastName) }}</small>
                     </div>
                 </div>
 
@@ -38,21 +36,18 @@
                 <div class="form-group">
                     {{ form_label(registrationForm.email) }}
                     {{ form_widget(registrationForm.email) }}
-                    <small class="text-danger">{{ form_errors(registrationForm.email) }}</small>
                 </div>
 
                 <!-- Password -->
                 <div class="form-group">
                     {{ form_label(registrationForm.password.first) }}
                     {{ form_widget(registrationForm.password.first) }}
-                    <small class="text-danger">{{ form_errors(registrationForm.password.first) }}</small>
                 </div>
 
                 <!-- Confirm password -->
                 <div class="form-group">
                     {{ form_label(registrationForm.password.second) }}
                     {{ form_widget(registrationForm.password.second) }}
-                    <small class="text-danger">{{ form_errors(registrationForm.password.second) }}</small>
                 </div>
 
                 <input class="btn btn-primary btn-block" type="submit" value="Register">
