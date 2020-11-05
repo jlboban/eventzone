@@ -1,4 +1,3 @@
-// TODO
 $(document).ready(function(){
 
     let suggestions = document.querySelector("#suggestions");
@@ -27,9 +26,10 @@ $(document).ready(function(){
                     genreDropdownToggle.classList.add('active');
 
                     genreData.map((genre, index) => {
-                        let newDiv = document.createElement("div");
+                        let select = document.createElement("select");
+                        let newDiv = document.createElement("option");
                         newDiv.innerText = genre.name
-                        newDiv.tabIndex = index.toString();
+                        newDiv.tabIndex = 0;
                         suggestions.append(newDiv);
                     });
                 },

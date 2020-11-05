@@ -45,22 +45,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Assert\Regex(
-     *     pattern="/\d/",
-     *     match=false,
-     *     message="Your name cannot contain a number."
-     * )
      */
     private ?string $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Assert\Regex(
-     *     pattern="/\d/",
-     *     match=false,
-     *     message="Your name cannot contain a number."
-     * )
      */
     private ?string $lastName;
 
@@ -273,6 +263,20 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+
+    public function isBookedToEvent(Event $event): bool
+    {
+        $isBooked = false;
+        $bookings = $this->getBookings();
+
+        foreach ($bookings as $booking){
+            if ($booking->getUser() === $this){
+                $booking->getEvent() === $event ? $isBooked = true : $isBooked = false;
+            }
+        }
+
+        return $isBooked;
     }
 
     public function hasBillingAddress(): bool

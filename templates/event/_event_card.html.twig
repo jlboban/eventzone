@@ -1,0 +1,36 @@
+<div class="col-sm-4 col-sm-auto" style="max-height: available">
+    <div class="mw-full">
+        {% if app.user.isBookedToEvent(event) %}
+        <div class="card p-0" style="background: linear-gradient(to right, #ff4500, #ff8c2e); border: none;">
+        {% else %}
+        <div class="card p-0">
+        {% endif %}
+            <img src="{{ asset('img/events/' ~ event.image) }}" class="img-fluid rounded-top" alt="Musician Image">
+            <div class="content">
+                <h2 class="content-title font-weight-bold">
+                {{ event.name }}
+                </h2>
+                <h2 class="content-title">
+                <span class="badge-group" role="group">
+                <div class="mw-full">
+                {% for musician in event.musicians %}
+                    {% if app.user.isBookedToEvent(event) %}
+                    <a class="badge badge-pill border shadow" href="{{ path('musician_show', {id: musician.id}) }}">
+                       <i class="fa fa-music text-light mr-5" aria-hidden="true"></i> {{ musician.name }}
+                    </a>
+                    {% else %}
+                    <a class="badge badge-pill badge-event border shadow" href="{{ path('musician_show', {id: musician.id}) }}">
+                       <i class="fa fa-music text-dark mr-5" aria-hidden="true"></i> {{ musician.name }}
+                    </a>
+                    {% endif %}
+                {% endfor %}
+                </div>
+                </span>
+                </h2>
+                <div class="text-right pb-20">
+                    <a href="{{ path('event_show', {'id': event.id}) }}" class="btn btn-block">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

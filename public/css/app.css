@@ -95,3 +95,28 @@
     color: whitesmoke !important;
     background: linear-gradient(90deg, #ff4500 100%, #ff892c 0%) !important;
 }
+
+.badge-event {
+    background: linear-gradient(90deg, #ff892c 0%, #ff4500 100%) !important;
+    font-weight: bolder;
+    color: #242424 !important;
+    border: none !important;
+    -webkit-transition: all 0.5s !important;
+    -moz-transition: all 0.5s !important;
+    -transition: all 0.5s !important;
+}
+
+.badge-event:hover {
+    color: whitesmoke !important;
+    background: linear-gradient(90deg, #ff4500 100%, #ff892c 0%) !important;
+}
+
+.dark-mode .badge.badge-event {
+    background: linear-gradient(90deg, #ff892c 0%, #ff4500 100%) !important;
+    font-weight: bolder;
+    color: #242424 !important;
+    border: none !important;
+    -webkit-transition: all 0.5s !important;
+    -moz-transition: all 0.5s !important;
+    -transition: all 0.5s !important;
+}

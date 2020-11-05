@@ -16,7 +16,6 @@ class HomeController extends AbstractController
         $registerForm = $this->createForm(RegistrationFormType::class, $this->getUser());
 
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
             'registrationForm' => $registerForm->createView(),
         ]);
     }

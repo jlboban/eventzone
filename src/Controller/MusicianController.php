@@ -52,6 +52,7 @@ class MusicianController extends AbstractController
      * @param ThumbnailGenerator $thumbGen
      * @return Response
      * @IsGranted("ROLE_ADMIN")
+     * @throws ImagickException
      */
     public function new(Request $request, FileUploader $fileUploader): Response
     {

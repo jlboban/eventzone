@@ -90,34 +90,28 @@ class BookingController extends AbstractController
      * @param BookingRepository $bookingRepository
      * @return Response
      * @IsGranted("ROLE_USER")
+     * @throws Exception
      */
     public function showPdf(Event $event, BookingRepository $bookingRepository): Response
     {
         $user = $this->getUser();
         $hasBillingAddress = $user->hasBillingAddress();
         $userBooking = $bookingRepository->findByUser($user);
-        $isBooked = $bookingRepository->isUserBooked($user);
-        $isBookedToEvent = $bookingRepository->isUserBookedToEvent($user, $event);
 
         $eventProcessor = new EventProcessor($event);
         $currentDiscount = $eventProcessor->getCurrentDiscount();
         $finalPrice = $eventProcessor->getFinalPrice();
-        $isCancellable = $eventProcessor->getDaysUntilEvent() <= self::CANCEL_BOOKING_DAYS ? false : true;
 
-        $html = $this->renderView('booking/show.html.twig', [
+        $html = $this->renderView('booking/showPdf.html.twig', [
             'user' => $user,
             'event' => $event,
             'currentDiscount' => $currentDiscount,
             'finalPrice' => $finalPrice,
             'userBooking' => $userBooking,
-            'isBooked' => $isBooked,
-            'isBookedToEvent' => $isBookedToEvent,
-            'isCancellable' => $isCancellable,
             'hasBillingAddress' => $hasBillingAddress,
         ]);
 
         $dompdf = new Dompdf();
-        //$dompdf->loadHtml($html);
         $dompdf->loadHtml($html);
         $dompdf->setPaper('A4', 'landscape');
 
@@ -126,8 +120,8 @@ class BookingController extends AbstractController
 
         $dompdf->setOptions($options);
         $dompdf->render();
-        return new Response($dompdf->stream());
 
+        return new Response($dompdf->stream());
     }
 
     /**

@@ -124,11 +124,16 @@ class GenreController extends AbstractController
      */
     public function showGenreMusicians(Request $request, GenreRepository $genreRepository): Response
     {
-        $genre = $genreRepository->findOneMatching($request->get('genre'));
+        $genres = $genreRepository->findAllMatching($request->get('genre')) ?? null;
 
-        return $this->render('genre/musicians.html.twig', [
-            'genre' => $genre,
-        ]);
+        if ($genres) {
+            return $this->render('genre/musicians.html.twig', [
+                'genres' => $genres,
+            ]);
+        }
+
+        $this->addFlash('error', 'No results founds.');
+        return $this->redirectToRoute('index');
     }
 
     /**
