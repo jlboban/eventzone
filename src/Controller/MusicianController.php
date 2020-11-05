@@ -6,6 +6,7 @@ use App\Service\FileUploader;
 use App\Entity\Musician;
 use App\Form\MusicianType;
 use App\Repository\MusicianRepository;
+use App\Service\ThumbnailGenerator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -48,8 +49,10 @@ class MusicianController extends AbstractController
      * @Route("/new", name="musician_new", methods={"GET","POST"})
      * @param Request $request
      * @param FileUploader $fileUploader
+     * @param ThumbnailGenerator $thumbGen
      * @return Response
      * @IsGranted("ROLE_ADMIN")
+     * @throws ImagickException
      */
     public function new(Request $request, FileUploader $fileUploader): Response
     {
@@ -64,6 +67,7 @@ class MusicianController extends AbstractController
             if ($image)
             {
                 $imageFileName = $fileUploader->upload($image, 'musicians');
+
                 $musician->setImage($imageFileName);
             }
 

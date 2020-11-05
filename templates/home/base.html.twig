@@ -13,6 +13,8 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
 
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
     {% block stylesheets %}{% endblock %}
 </head>
 <body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true">
@@ -26,20 +28,6 @@
     </div>
 
     {{ include('home/_nav.html.twig') }}
-
-    {% for message in app.flashes('success') %}
-        <div class="alert alert-primary filled-lm" role="alert">
-            <h4 class="alert-heading"></h4>
-            {{ message }}
-        </div>
-    {% endfor %}
-
-    {% for message in app.flashes('error') %}
-        <div class="alert alert-danger filled-lm" role="alert">
-            <h4 class="alert-heading"></h4>
-            {{ message }}
-        </div>
-    {% endfor %}
 
     {% block body %}{% endblock %}
 
@@ -55,6 +43,7 @@
 
 <!-- Custom JS -->
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/genre-search.js') }}"></script>
 
 </body>
 </html>

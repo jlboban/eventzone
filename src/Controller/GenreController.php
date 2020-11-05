@@ -5,11 +5,15 @@ namespace App\Controller;
 use App\Entity\Genre;
 use App\Form\GenreType;
 use App\Repository\GenreRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Constraints\Json;
 
 /**
  * @Route("/genre")
@@ -20,6 +24,7 @@ class GenreController extends AbstractController
      * @Route("/", name="genre_index", methods={"GET"})
      * @param GenreRepository $genreRepository
      * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function index(GenreRepository $genreRepository): Response
     {
@@ -32,6 +37,7 @@ class GenreController extends AbstractController
      * @Route("/new", name="genre_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -59,6 +65,7 @@ class GenreController extends AbstractController
      * @Route("/{id}", name="genre_show", methods={"GET"})
      * @param Genre $genre
      * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function show(Genre $genre): Response
     {
@@ -72,6 +79,7 @@ class GenreController extends AbstractController
      * @param Request $request
      * @param Genre $genre
      * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Genre $genre): Response
     {
@@ -95,6 +103,7 @@ class GenreController extends AbstractController
      * @param Request $request
      * @param Genre $genre
      * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Genre $genre): Response
     {
@@ -108,16 +117,39 @@ class GenreController extends AbstractController
     }
 
     /**
-     * @Route("/search", name="genre_search", methods="GET")
+     * @Route("musicians", name="genre_musicians", methods={"GET"})
      * @param Request $request
+     * @param GenreRepository $genreRepository
+     * @return Response
+     */
+    public function showGenreMusicians(Request $request, GenreRepository $genreRepository): Response
+    {
+        $genres = $genreRepository->findAllMatching($request->get('genre')) ?? null;
+
+        if ($genres) {
+            return $this->render('genre/musicians.html.twig', [
+                'genres' => $genres,
+            ]);
+        }
+
+        $this->addFlash('error', 'No results founds.');
+        return $this->redirectToRoute('index');
+    }
+
+    /**
+     * @Route("/search", name="genre_search", methods={"GET","POST"})
+     * @param Request $request
+     * @param GenreRepository $genreRepository
+     * @param SerializerInterface $serializer
      * @return JsonResponse
      */
-    public function getGenresApi(Request $request)
+    public function getGenresJson(Request $request, GenreRepository $genreRepository, SerializerInterface $serializer): JsonResponse
     {
-        $genres = $this->getDoctrine()
-            ->getRepository(Genre::class)
-            ->findAllMatching($request->query->get('genre'));
+        $genres = $genreRepository->findAllMatching($request->get('genre'));
+        $json = $serializer->serialize($genres, 'json', ['groups' => ['genre_search']]);
 
-        return $this->json(['genres' => $genres]);
+        return $this->json([
+            'genres' => $json ?? null,
+        ], 200, []);
     }
 }

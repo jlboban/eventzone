@@ -1,0 +1,61 @@
+{% extends 'home/base.html.twig' %}
+
+
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+
+    <!-- Content wrapper start -->
+    <div class="content-wrapper">
+        <div class="container-fluid">
+                <div class="row">
+                        <!--
+                        <div  class="col-sm-3">
+                            <div class="mw-full">
+                                <div class="card p-0 border">
+                                    <img src="" class="img-fluid rounded-top" alt="Musician image">
+                                    <div class="content">
+                                        <h3 class="content-title font-weight-bold">
+
+                                        </h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+
+                    {% for genre in genres %}
+                        {% for musician in genre.musicians %}
+                        <div class="card mb-3" style="max-width: 540px; max-height: 300px">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="{{ asset('img/musicians/' ~ musician.image) }}" class="card-img img-fluid" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ musician.name }}</h5>
+                                        <p class="card-text">
+                                            {% for genre in musician.genre %}
+                                                {{ genre.name }}
+                                            {% endfor %}</p>
+                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+    {% endfor %}
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    <!-- Content wrapper end -->
+
+{% endblock %}

@@ -36,7 +36,7 @@ class Musician
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Image(maxSize="100k", groups = {"create"})
+     * @Assert\Image(maxSize="100k", groups={"create"})
      */
     private ?string $image;
 
@@ -48,6 +48,7 @@ class Musician
 
     /**
      * @ORM\ManyToMany(targetEntity=Genre::class, inversedBy="musicians")
+     * @Assert\NotBlank
      */
     private Collection $genre;
 

@@ -9,28 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             {% for event in events %}
-
-                <div class="col-sm-4 col-sm-auto">
-                    <div class="mw-full">
-                        <div class="card p-0">
-                            <img src="{{ asset('img/events/' ~ event.image) }}" class="img-fluid rounded-top" alt="Musician Image">
-                            <div class="content">
-                                <h2 class="content-title">
-                                    {{ event.name }}
-                                </h2>
-                                <h2 class="content-title">
-                                    {% for musician in event.musicians %}
-                                        {{ musician.name }} </br>
-                                    {% endfor %}
-                                </h2>
-                                <div class="text-right">
-                                    <a href="{{ path('event_show', {'id': event.id}) }}" class="btn">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                {% include 'event/_event_card.html.twig' %}
             {% endfor %}
         </div>
     </div>

@@ -6,6 +6,7 @@ use App\Entity\Booking;
 use App\Entity\Event;
 use App\Repository\BookingRepository;
 use App\Service\EventProcessor;
+use Dompdf\Dompdf;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -60,8 +61,10 @@ class BookingController extends AbstractController
     public function show(Event $event, BookingRepository $bookingRepository): Response
     {
         $user = $this->getUser();
+        $hasBillingAddress = $user->hasBillingAddress();
+        $userBooking = $bookingRepository->findByUser($user);
         $isBooked = $bookingRepository->isUserBooked($user);
-        $userBooking = $bookingRepository->getUserBooking($user, $event);
+        $isBookedToEvent = $bookingRepository->isUserBookedToEvent($user, $event);
 
         $eventProcessor = new EventProcessor($event);
         $currentDiscount = $eventProcessor->getCurrentDiscount();
@@ -69,16 +72,56 @@ class BookingController extends AbstractController
         $isCancellable = $eventProcessor->getDaysUntilEvent() <= self::CANCEL_BOOKING_DAYS ? false : true;
 
         return $this->render('booking/show.html.twig', [
-            'event' => $event,
-            'musicians' => $event->getMusicians(),
-            'venues' => $event->getVenues(),
             'user' => $user,
-            'userBooking' => $userBooking,
+            'event' => $event,
             'currentDiscount' => $currentDiscount,
             'finalPrice' => $finalPrice,
+            'userBooking' => $userBooking,
             'isBooked' => $isBooked,
+            'isBookedToEvent' => $isBookedToEvent,
             'isCancellable' => $isCancellable,
+            'hasBillingAddress' => $hasBillingAddress,
         ]);
+    }
+
+    /**
+     * @Route("/{id}/pdf", name="booking_show_pdf", methods={"GET", "POST"})
+     * @param Event $event
+     * @param BookingRepository $bookingRepository
+     * @return Response
+     * @IsGranted("ROLE_USER")
+     * @throws Exception
+     */
+    public function showPdf(Event $event, BookingRepository $bookingRepository): Response
+    {
+        $user = $this->getUser();
+        $hasBillingAddress = $user->hasBillingAddress();
+        $userBooking = $bookingRepository->findByUser($user);
+
+        $eventProcessor = new EventProcessor($event);
+        $currentDiscount = $eventProcessor->getCurrentDiscount();
+        $finalPrice = $eventProcessor->getFinalPrice();
+
+        $html = $this->renderView('booking/showPdf.html.twig', [
+            'user' => $user,
+            'event' => $event,
+            'currentDiscount' => $currentDiscount,
+            'finalPrice' => $finalPrice,
+            'userBooking' => $userBooking,
+            'hasBillingAddress' => $hasBillingAddress,
+        ]);
+
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'landscape');
+
+        $options = $dompdf->getOptions();
+        $options->setIsHtml5ParserEnabled('true');
+
+        $dompdf->setOptions($options);
+        $dompdf->render();
+
+        return new Response($dompdf->stream());
     }
 
     /**

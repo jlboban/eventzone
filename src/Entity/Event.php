@@ -35,12 +35,12 @@ class Event
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank
      */
     private ?DateTimeInterface $start_date;
 
     /**
      * @ORM\Column(type="date", nullable=true)
-     * @Assert\NotBlank
      */
     private ?DateTimeInterface $end_date;
 
@@ -63,12 +63,18 @@ class Event
 
     /**
      * @ORM\Column(type="decimal", precision=4, scale=2, nullable=true)
+     * @Assert\Range(
+     *     min="0",
+     *     max="99.99",
+     *     notInRangeMessage="Please input a valid discount % in the xx.xx format."
+     * )
      */
     private ?string $discount;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Image(maxSize="100k")
+     * @Assert\NotBlank(groups={"create"})
      */
     private ?string $image;
 
@@ -88,6 +94,27 @@ class Event
      * @ORM\OneToMany(targetEntity=Booking::class, mappedBy="event", orphanRemoval=true)
      */
     private Collection $bookings;
+
+    /**
+     * @ORM\Column(type="integer", options={"default":"365"})
+     * @Assert\Range(
+     *     min="0",
+     *     max="999",
+     *     notInRangeMessage="Invalid number of days."
+     * )
+     * @Assert\Expression("value > this.getDiscountEnd()", message="Number of days must be greater than discount end days.")
+     */
+    private ?int $discount_begin;
+
+    /**
+     * @ORM\Column(type="integer", options={"default":"30"})
+     * @Assert\Range(
+     *     min="0",
+     *     max="999",
+     *     notInRangeMessage="Invalid number of days."
+     * )
+     */
+    private ?int $discount_end;
 
     public function __construct()
     {
@@ -288,6 +315,30 @@ class Event
                 $booking->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDiscountBegin(): ?int
+    {
+        return $this->discount_begin;
+    }
+
+    public function setDiscountBegin(int $discount_begin): self
+    {
+        $this->discount_begin = $discount_begin;
+
+        return $this;
+    }
+
+    public function getDiscountEnd(): ?int
+    {
+        return $this->discount_end;
+    }
+
+    public function setDiscountEnd(int $discount_end): self
+    {
+        $this->discount_end = $discount_end;
 
         return $this;
     }

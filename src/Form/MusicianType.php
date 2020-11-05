@@ -22,6 +22,11 @@ class MusicianType extends AbstractType
             ->add('image', FileType::class, [
                 'mapped' => false,
                 'label' => false,
+                'required' => true,
+                'attr' => [
+
+                    'data-default-value' => "No image chosen",
+                ],
             ])
             ->add('genre', EntityType::class, [
                 'class' => Genre::class,

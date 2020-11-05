@@ -8,28 +8,7 @@
     <div class="container-fluid">
         <div class="row">
             {% for musician in musicians %}
-
-            <div class="col-sm-4 col-sm-auto">
-                <div class="mw-full">
-                    <div class="card p-0">
-                        <img src="{{ asset('img/musicians/' ~ musician.image) }}" class="img-fluid rounded-top" alt="Musician Image">
-                        <div class="content">
-                            <h2 class="content-title">
-                                {{ musician.name }}
-                            </h2>
-                            <h2 class="content-title">
-                                {% for genre in musician.genre %}
-                                    {{ genre.name }}
-                                {% endfor %}
-                            </h2>
-                            <div class="text-right">
-                                <a href="{{ path('musician_show', {'id': musician.id}) }}" class="btn">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            {% include 'musician/_musician_card.html.twig' %}
             {% endfor %}
         </div>
     </div>

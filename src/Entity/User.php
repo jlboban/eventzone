@@ -39,32 +39,18 @@ class User implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank
-     * @Assert\Regex(
-     *     pattern="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/",
-     *     message="Password must contain at least one letter, one number and have at least six characters."
-     * )
      */
     private string $password;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Assert\Regex(
-     *     pattern="/\d/",
-     *     match=false,
-     *     message="Your name cannot contain a number."
-     * )
      */
     private ?string $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Assert\Regex(
-     *     pattern="/\d/",
-     *     match=false,
-     *     message="Your name cannot contain a number."
-     * )
      */
     private ?string $lastName;
 
@@ -277,5 +263,29 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+
+    public function isBookedToEvent(Event $event): bool
+    {
+        $isBooked = false;
+        $bookings = $this->getBookings();
+
+        foreach ($bookings as $booking){
+            if ($booking->getUser() === $this){
+                $booking->getEvent() === $event ? $isBooked = true : $isBooked = false;
+            }
+        }
+
+        return $isBooked;
+    }
+
+    public function hasBillingAddress(): bool
+    {
+        $address = $this->getAddress();
+        $city = $this->getCity();
+        $postcode = $this->getPostcode();
+        $country = $this->getCountry();
+
+        return is_null($address) || is_null($city) || is_null($postcode) || is_null($country) ? false : true;
     }
 }
