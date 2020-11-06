@@ -7,45 +7,42 @@
 <!-- Content wrapper start -->
 <div class="content-wrapper">
     <div class="container-fluid">
-        <div class="card border">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="mw-full">
-                        <div class="card p-0 border">
-                            <img src="{{ asset('img/musicians/' ~ musician.image) }}" class="img-fluid rounded-top" alt="Musician image">
-                            <div class="content">
-                                <h1 class="content-title font-weight-bolder text-center">
-                                    {{ musician.name }}
-                                </h1>
-                                <h6 class="content-title font-weight-light text-center">
-                                    {% for genre in musician.genre %}
-                                    <i class="fas fa-compact-disc"></i> {{ genre.name }} </br>
-                                    {% endfor %}
-                                </h6>
-                            </div>
-                        </div>
+        <div class="row card d-flex justify-content-center">
+
+            <div class="card col-sm-6 p-0">
+                <div class="row no-gutters shadow">
+                    <div class="col-4 image-wrapper">
+                        <img src="{{ asset('img/musicians/' ~ musician.image) }}"  alt="Musician Image">
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="mw-full">
-                        <div class="card p-0 border">
-                            <div class="content h100">
-                                <iframe src=""
-                                        width="100%" frameborder="0" allowtransparency="true" allow="encrypted-media">
-                                </iframe>
+                    <div class="col-8">
+                        <div class="card-body p-20" style="flex-flow: row wrap;">
+                            <h5 class="card-title font-weight-bolder">{{ musician.name }}</h5>
+                            <div class="pb-20">
+                                {% for genre in musician.genre %}
+                                    <a class="badge badge-pill btn-event shadow" href="{{ path('genre_musicians', {genre: genre.name}) }}">
+                                        <i class="fa fa-music text-dark mr-5" aria-hidden="true"></i> {{ genre.name }}
+                                    </a>
+                                {% endfor %}
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="card p-0 border">
-                        <div class="content font-weight-light long-description">
-                            <h1 class="float-left font-weight-bolder">About</h1>
-                            {{ musician.description }}
                         </div>
                     </div>
                 </div>
             </div>
+            {% if musician.spotify %}
+                <div class="card col-sm-4 p-0 iframe-container">
+                    {{ musician.spotify|raw }}
+                </div>
+            {% endif %}
+
+            <div class="col-sm-12">
+                <div class="card p-0 shadow">
+                    <h1 class="font-weight-bolder pl-20 pt-20">Description</h1>
+                    <div class="content font-weight-light long-description">
+                        {{ musician.description }}
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

@@ -9,26 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             {% for venue in venues %}
-
-                <div class="col-sm-4 col-sm-auto">
-                    <div class="mw-full">
-                        <div class="card p-0">
-                            <img src="{{ asset('img/venues/' ~ venue.image) }}" class="img-fluid rounded-top" alt="Musician Image">
-                            <div class="content">
-                                <h2 class="content-title">
-                                    {{ venue.name }}
-                                </h2>
-                                <h2 class="content-title">
-                                    {{ venue.capacity }}
-                                </h2>
-                                <div class="text-right">
-                                    <a href="{{ path('venue_show', {'id': venue.id}) }}" class="btn">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                {% include 'venue/_venue_card.html.twig' %}
             {% endfor %}
         </div>
     </div>

@@ -1,0 +1,25 @@
+<div class="col-sm-4 mw-full">
+    <div class="card p-0">
+        <div class="image-wrapper">
+            <img src="{{ asset('img/venues/' ~ venue.image) }}" class="img-fluid rounded-top" alt="Venue Image">
+        </div>
+        <div class="content d-flex justify-content-center">
+            <h4 class="mt-20 font-weight-bold text-uppercase">
+                {{ venue.name }}
+            </h4>
+        </div>
+        <div class="content">
+            <div>
+                Address:
+                <h6 class="font-weight-bolder mt-20">
+                    {{ venue.address }}, {{ venue.city }}
+                </h6>
+            </div>
+            <div>
+                <h6 class="font-weight-bolder mt-20">
+                    {{ venue.postcode }} {{ venue.country }}
+                </h6>
+            </div>
+        </div>
+    </div>
+</div>

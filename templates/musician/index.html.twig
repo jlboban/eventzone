@@ -3,15 +3,17 @@
 {% block title %}Musicians{% endblock %}
 
 {% block body %}
+
 <!-- Content wrapper start -->
 <div class="content-wrapper">
     <div class="container-fluid">
         <div class="row">
             {% for musician in musicians %}
-            {% include 'musician/_musician_card.html.twig' %}
+                {% include 'musician/_musician_card.html.twig' %}
             {% endfor %}
         </div>
     </div>
 </div>
 <!-- Content wrapper end -->
+
 {% endblock %}

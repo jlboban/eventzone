@@ -4,40 +4,40 @@
 
 {% block body %}
 
-    <!-- Content wrapper start -->
-    <div class="content-wrapper">
-        <div class="container-fluid">
-            <div class="card border">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="mw-full">
-                            <div class="card p-0 border">
-                                <img src="{{ asset('img/venues/' ~ venue.image) }}" class="img-fluid rounded-top" alt="Musician image">
-                                <div class="content">
-                                    <h1 class="content-title font-weight-bolder text-center">
-                                        {{ venue.name }}
-                                    </h1>
-                                </div>
+<!-- Content wrapper start -->
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="card border">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="mw-full">
+                        <div class="card p-0 border">
+                            <img src="{{ asset('img/venues/' ~ venue.image) }}" class="img-fluid rounded-top" alt="Musician image">
+                            <div class="content">
+                                <h1 class="content-title font-weight-bolder text-center">
+                                    {{ venue.name }}
+                                </h1>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="mw-full">
-                            <div class="card p-0 border">
-                                <div class="content h100">
-                                    {{ venue.address }}
-                                    {{ venue.city }}
-                                    {{ venue.postcode }}
-                                    {{ venue.country }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+                <div class="col-sm-6">
+                    <div class="mw-full">
+                        <div class="card p-0 border">
+                            <div class="content h100">
+                                {{ venue.address }}
+                                {{ venue.city }}
+                                {{ venue.postcode }}
+                                {{ venue.country }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-    <!-- Content wrapper end -->
+</div>
+<!-- Content wrapper end -->
 
 {% endblock %}

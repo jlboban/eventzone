@@ -52,7 +52,7 @@ class BookingController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="booking_show", methods={"GET"})
+     * @Route("/show/{id}", name="booking_show", methods={"GET"})
      * @param Event $event
      * @param BookingRepository $bookingRepository
      * @return Response

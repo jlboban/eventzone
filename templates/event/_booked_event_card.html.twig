@@ -1,5 +1,5 @@
 <div class="col-sm-4 mw-full">
-    <div class="card p-0">
+    <div class="card p-0" style="background: linear-gradient(to right, #ff4500, #ff8c2e);">
         <div class="image-wrapper">
             <img src="{{ asset('img/events/' ~ event.image) }}" class="img-fluid rounded-top" alt="Event Image">
         </div>
@@ -9,18 +9,17 @@
             </h1>
             <small class="text-light">Featuring: </small>
             <span class="badge-group pb-20 mb-20" role="group">
-                <div class="mw-full">
-                {% for musician in event.musicians %}
-                    <a class="badge badge-pill btn-event shadow" href="{{ path('musician_show', {id: musician.id}) }}">
-                       <i class="fa fa-music text-dark mr-5" aria-hidden="true"></i> {{ musician.name }}
-                    </a>
-                {% endfor %}
-                </div>
+            <div class="mw-full">
+            {% for musician in event.musicians %}
+                <a class="badge badge-pill btn-event border shadow" href="{{ path('musician_show', {id: musician.id}) }}">
+                   <i class="fa fa-music text-light mr-5" aria-hidden="true"></i> {{ musician.name }}
+                </a>
+            {% endfor %}
+            </div>
             </span>
             <div class="position-absolute bottom-0 right-0 pl-20 pr-20 mt-20 w-full h-50">
                 <a href="{{ path('event_show', {'id': event.id}) }}" class="btn btn-block btn-event border shadow">Details</a>
             </div>
         </div>
-
     </div>
 </div>
