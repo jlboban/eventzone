@@ -7,9 +7,13 @@
 <!-- Content wrapper start -->
 <div class="content-wrapper">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row card-columns">
             {% for event in events %}
-                {% include 'event/_event_card.html.twig' %}
+                {% if app.user is not null and app.user.isBookedToEvent(event) %}
+                    {% include 'event/_booked_event_card.html.twig' %}
+                {% else %}
+                    {% include 'event/_event_card.html.twig' %}
+                {% endif %}
             {% endfor %}
         </div>
     </div>

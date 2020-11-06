@@ -21,11 +21,11 @@
         <tr>
             <td>{{ musician.id }}</td>
             <td>{{ musician.name }}</td>
-            <td>
+            <td style="max-width: 40rem">
                 <p class="description">{{ musician.description }}</p>
             </td>
-            <td class="d-flex justify-content-center">
-                <img class="img-fluid border shadow-lg table-image" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
+            <td class="d-flex justify-content-center image-wrapper mw-full" style="max-height: 15rem;">
+                <img class="img-fluid border shadow" src="{{ asset('img/musicians/' ~ musician.image) }}" alt="Musician Image">
             </td>
             <td>
                 <div class="btn-group-vertical d-flex align-content-center">

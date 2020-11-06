@@ -81,11 +81,13 @@
                                 <h2 class="content-title font-weight-bolder text-center">
                                     {{ event.name }}
                                 </h2>
+                                <h4 class="font-weight-bold">Featuring: </h4>
                                 {% for musician in event.musicians %}
                                 <h3 class="content-title font-weight-bold">
-                                    {{ musician.name }}
+                                    <i class="fas fa-music"></i> {{ musician.name }}
                                 </h3>
                                 {% endfor %}
+                                <h4 class="font-weight-bold">Location: </h4>
                                 {% for venue in event.venues %}
                                 <p class="text-muted">
                                     {{ venue.name }}
@@ -98,7 +100,7 @@
                                 <p class="text-muted">
                                     {{ venue.country }}
                                 </p>
-                                    <hr>
+                                <hr>
                                 {% endfor %}
                                 {% if not isBooked and hasBillingAddress is same as(true) %}
                                     <div class="text-right">
@@ -114,7 +116,9 @@
                                         <form action="{{ path('booking_show_pdf', {'id': event.id}) }}" method="post" class="pr-10">
                                             <button class="btn btn-lg font-weight-bold"><i class="fas fa-file-pdf"></i> Get PDF</button>
                                         </form>
-                                        <form action="{{ path('booking_delete', {'id': userBooking.id}) }}" method="post">
+                                        <form action="{{ path('booking_delete', {'id': userBooking.id}) }}"
+                                              onsubmit="return confirm('Are you sure you want to cancel your event booking?');"
+                                              method="post">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ userBooking.id) }}">
                                             <button class="btn btn-lg font-weight-bold btn-danger"><i class="fas fa-times"></i> Cancel</button>

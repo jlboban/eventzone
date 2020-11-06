@@ -52,6 +52,11 @@ class Musician
      */
     private Collection $genre;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $spotify;
+
     public function __construct()
     {
         $this->events = new ArrayCollection();
@@ -149,6 +154,18 @@ class Musician
         if ($this->genre->contains($genre)) {
             $this->genre->removeElement($genre);
         }
+
+        return $this;
+    }
+
+    public function getSpotify(): ?string
+    {
+        return $this->spotify;
+    }
+
+    public function setSpotify(?string $spotify): self
+    {
+        $this->spotify = $spotify;
 
         return $this;
     }

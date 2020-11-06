@@ -20,35 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba4f4770-ee47-4628-b417-56a80199ac49" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f3bdda4f-96fc-4333-9d65-7b85a6d978f3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f3bdda4f-96fc-4333-9d65-7b85a6d978f3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/eventzone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/eventzone.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/genre-search.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/genre-search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BookingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GenreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GenreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MusicianController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MusicianController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Genre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Genre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Musician.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Musician.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/GenreRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/GenreRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/ThumbnailGenerator.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/dashboard/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/dashboard/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/genre/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/genre/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/MusicianType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MusicianType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/VenueType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/VenueType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/musician/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/musician/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/musician/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/musician/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/venue/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/venue/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/venue/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/booking/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booking/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/booking/showPdf.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booking/showPdf.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/_event_card.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/_event_card.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/event/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/genre/musicians.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/genre/musicians.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/_nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/musician/_musician_card.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/musician/_musician_card.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/musician/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/musician/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/musician/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/musician/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/venue/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/venue/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/venue/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/venue/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,8 +57,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -208,16 +202,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/admin" />
+      <recent name="$PROJECT_DIR$/templates/home" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/templates/event" />
       <recent name="$PROJECT_DIR$/templates/musician" />
       <recent name="$PROJECT_DIR$/templates/security" />
       <recent name="$PROJECT_DIR$/public/img/events" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/admin" />
-      <recent name="$PROJECT_DIR$/templates/home" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -246,6 +240,8 @@
       <workItem from="1604387017860" duration="24587000" />
       <workItem from="1604473478991" duration="23697000" />
       <workItem from="1604559806038" duration="22901000" />
+      <workItem from="1604646878408" duration="15208000" />
+      <workItem from="1604666518588" duration="6261000" />
     </task>
     <servers />
   </component>
@@ -432,10 +428,10 @@
     <state x="95" y="128" width="1721" height="849" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604321361299" />
     <state x="26" y="109" width="1720" height="880" maximized="true" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604564177337" />
     <state x="154" y="157" width="1665" height="859" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/62.27.1858.1053/1920.0.1920.1080@62.27.1858.1053" timestamp="1604242557592" />
-    <state x="31" y="72" width="1720" height="848" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604489361054">
+    <state x="-352" y="92" width="1960" height="848" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604672352736">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="31" y="72" width="1720" height="848" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604489361054" />
+    <state x="-352" y="92" width="1960" height="848" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604672352736" />
     <state x="2020" y="99" width="1720" height="880" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603800753362" />
     <state x="0" y="208" width="1510" height="832" maximized="true" key="dock-window-1" timestamp="1604328222016">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -463,10 +459,10 @@
     </state>
     <state x="1063" y="46" width="726" height="994" key="find.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604576710487" />
     <state x="2983" y="48" width="726" height="1032" key="find.popup/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603698285707" />
-    <state x="540" y="234" key="run.anything.popup" timestamp="1604326566176">
+    <state x="540" y="234" key="run.anything.popup" timestamp="1604654930803">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="540" y="234" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604326566176" />
+    <state x="540" y="234" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1604654930803" />
     <state x="2459" y="5" width="840" height="1074" key="search.everywhere.popup" timestamp="1604478765582">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>

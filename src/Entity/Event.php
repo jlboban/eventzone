@@ -74,7 +74,6 @@ class Event
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Image(maxSize="100k")
-     * @Assert\NotBlank(groups={"create"})
      */
     private ?string $image;
 

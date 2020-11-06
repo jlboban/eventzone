@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -24,7 +25,6 @@ class MusicianType extends AbstractType
                 'label' => false,
                 'required' => true,
                 'attr' => [
-
                     'data-default-value' => "No image chosen",
                 ],
             ])
@@ -38,6 +38,9 @@ class MusicianType extends AbstractType
                 },
                 'multiple' => true,
                 'expanded' => false,
+            ])
+            ->add('spotify', TextType::class, [
+                'help' => 'Embed code',
             ])
         ;
     }
