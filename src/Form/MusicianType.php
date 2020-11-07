@@ -41,6 +41,7 @@ class MusicianType extends AbstractType
             ])
             ->add('spotify', TextType::class, [
                 'help' => 'Embed code',
+                'required' => false,
             ])
         ;
     }

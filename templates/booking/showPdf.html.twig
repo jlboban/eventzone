@@ -70,30 +70,44 @@
                     <div class="mw-full">
                         <div class="card p-0 border">
                             <div class="content">
-
-                                <h2 class="content-title font-weight-bolder text-center">
-                                    Event: {{ event.name }}
+                                <h2 class="content-title font-weight-bolder">
+                                    {{ event.name }}
                                 </h2>
-                                {% for musician in event.musicians %}
-                                <h3 class="content-title font-weight-bold">
-                                    Musician: {{ musician.name }}
-                                </h3>
-                                {% endfor %}
-                                {% for venue in event.venues %}
-                                <p class="text-muted">
-                                    Venue: {{ venue.name }}
-                                </p>
-                                <p class="text-muted">
-                                    Capacity: <i class="fas fa-user"></i> {{ venue.capacity }}
-                                </p>
-                                <p class="text-muted">
-                                    {{ venue.address }}, {{ venue.city }}
-
-                                </p>
-                                <p class="text-muted">
-                                    {{ venue.postcode }}, {{ venue.country }}
-                                </p>
                                 <hr>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h4 class="font-weight-bold">Featuring: </h4>
+                                        {% for musician in event.musicians %}
+                                            <h3 class="content-title font-weight-bold">
+                                                <i class="fas fa-music"></i> {{ musician.name }}
+                                            </h3>
+                                        {% endfor %}
+                                        <h4 class="font-weight-bold">Location: </h4>
+                                        {% for venue in event.venues %}
+                                        <p class="text-muted">
+                                            {{ venue.name }}
+                                            <i class="fas fa-user"></i> {{ venue.capacity }}
+                                        </p>
+                                        <p class="text-muted">
+                                            {{ venue.address }} {{ venue.postcode }}
+                                            {{ venue.city }}
+                                        </p>
+                                        <p class="text-muted">
+                                            {{ venue.country }}
+                                        </p>
+                                        <hr>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h6>
+                                            Date:
+                                            <strong>{{ event.startDate|date('d | m | Y') }}</strong>
+                                        </h6>
+                                        <h6>
+                                            Time:
+                                            <strong>{{ event.startTime|date('H:i', '+00:00 GMT') }} </strong>
+                                        </h6>
+                                    </div>
+                                </div>
                                 {% endfor %}
                             </div>
                         </div>
