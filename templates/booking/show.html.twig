@@ -78,29 +78,46 @@
                             <img src="{{ asset('img/events/' ~ event.image)}}" class="img-fluid rounded-top" alt="Event image">
 
                             <div class="content">
-                                <h2 class="content-title font-weight-bolder text-center">
+                                <h2 class="content-title font-weight-bolder">
                                     {{ event.name }}
                                 </h2>
-                                <h4 class="font-weight-bold">Featuring: </h4>
-                                {% for musician in event.musicians %}
-                                <h3 class="content-title font-weight-bold">
-                                    <i class="fas fa-music"></i> {{ musician.name }}
-                                </h3>
-                                {% endfor %}
-                                <h4 class="font-weight-bold">Location: </h4>
-                                {% for venue in event.venues %}
-                                <p class="text-muted">
-                                    {{ venue.name }}
-                                    <i class="fas fa-user"></i> {{ venue.capacity }}
-                                </p>
-                                <p class="text-muted">
-                                    {{ venue.address }} {{ venue.postcode }}
-                                    {{ venue.city }}
-                                </p>
-                                <p class="text-muted">
-                                    {{ venue.country }}
-                                </p>
                                 <hr>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h4 class="font-weight-bold">Featuring: </h4>
+                                        {% for musician in event.musicians %}
+                                            <h3 class="content-title font-weight-bold">
+                                                <i class="fas fa-music"></i> {{ musician.name }}
+                                            </h3>
+                                        {% endfor %}
+                                        <h4 class="font-weight-bold">Location: </h4>
+                                        {% for venue in event.venues %}
+                                        <p class="text-muted">
+                                            {{ venue.name }}
+                                            <i class="fas fa-user"></i> {{ venue.capacity }}
+                                        </p>
+                                        <p class="text-muted">
+                                            {{ venue.address }} {{ venue.postcode }}
+                                            {{ venue.city }}
+                                        </p>
+                                        <p class="text-muted">
+                                            {{ venue.country }}
+                                        </p>
+                                        <hr>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h5 class="font-weight-bolder">
+                                            Date:
+                                            <strong>{{ event.startDate|date('d | m | Y') }}</strong>
+                                        </h5>
+                                        <h5 class="font-weight-bolder">
+                                            Time:
+                                            <strong>{{ event.startTime|date('H:i', '+00:00 GMT') }}</strong> |
+                                            <small>+00:00 GMT</small>
+                                        </h5>
+                                    </div>
+                                </div>
+
                                 {% endfor %}
                                 {% if not isBooked and hasBillingAddress is same as(true) %}
                                     <div class="text-right">
