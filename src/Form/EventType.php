@@ -47,11 +47,11 @@ class EventType extends AbstractType
             ])
             ->add('discount_begin', IntegerType::class, [
                 'help' => 'Discount scaling begins on X days before the event. Default: 365 days.',
-                'required' => false
+                'required' => true
             ])
             ->add('discount_end', IntegerType::class, [
                 'help' => 'Discount scaling ends on X days before the event. Default: 30 days.',
-                'required' => false
+                'required' => true
             ])
             ->add('image', FileType::class, [
                 'mapped' => false,
