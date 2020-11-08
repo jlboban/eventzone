@@ -8,16 +8,24 @@
         </a>
 
         <!-- Navbar links -->
-        <a href="{{ path('event_index') }}" class="btn btn-sm mr-10 border" role="button">Events</a>
-        <a href="{{ path('musician_index') }}" class="btn btn-sm mr-10 border" role="button">Musicians</a>
-        <a href="{{ path('venue_index') }}" class="btn btn-sm mr-10 border" role="button">Venues</a>
+        <a href="{{ path('event_index') }}" class="btn btn-sm mr-10 border" role="button">
+            <i class="fas fa-calendar-alt mr-5" aria-hidden="true"></i>Events
+        </a>
+        <a href="{{ path('musician_index') }}" class="btn btn-sm mr-10 border" role="button">
+            <i class="fas fa-music mr-5" aria-hidden="true"></i>Musicians
+        </a>
+        <a href="{{ path('venue_index') }}" class="btn btn-sm mr-10 border" role="button">
+            <i class="fas fa-map-marked-alt mr-5" aria-hidden="true"></i>Venues
+        </a>
 
     </div>
 
     <div class="navbar-content ml-auto">
 
         {% if not app.user %}
-            <a href="{{ path('app_register') }}" class="btn mr-10 border" role="button">Sign up</a>
+            <a href="{{ path('app_register') }}" class="btn mr-10 border" role="button">
+                <i class="fas fa-user mr-5" aria-hidden="true"></i>Sign up
+            </a>
         {% else %}
             <div class="dropdown toggle-on-hover">
                 <button class="btn" data-toggle="dropdown" type="button" id="" aria-haspopup="true" aria-expanded="false">
